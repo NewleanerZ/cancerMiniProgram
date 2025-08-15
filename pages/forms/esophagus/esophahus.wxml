@@ -1,0 +1,455 @@
+<!--pages/forms/esophagus/esophahus.wxml-->
+<view class="container">
+    <form bindsubmit="submitForm">
+        <!--个人信息-->
+        <view class="section-title">一、基本信息</view>
+        <view class="question-item">
+            <view class="question">1.性别</view>
+            <view class="options">
+                <radio-group data-field="gender" bindchange="handleRadioChange">
+                    <label class='radio'><radio value="male"/>男</label>
+                    <label class='radio'><radio value="female"/>女</label>
+                </radio-group>
+            </view>
+        </view>
+
+        <!-- 2. 年龄 -->
+        <view class="question-item">
+        <view class="question">2. 年龄：</view>
+        <view class="options">
+            <input 
+            class="small-input" 
+            data-field="age" 
+            type="number"
+            placeholder="岁"
+            value="{{formData.age}}"
+            bindinput="handleInput"
+            />
+        </view>
+        </view>
+
+        <!-- 3. 长期居住地 -->
+        <view class="question-item">
+        <view class="question">3. 长期居住地：</view>
+        <view class="options">
+            <input 
+            class="normal-input" 
+            data-field="residence" 
+            placeholder="请填写长期居住地（用于判定是否为食管癌高发地区）"
+            value="{{formData.residence}}"
+            bindinput="handleInput"
+            />
+        </view>
+        </view>
+
+        <!-- 家族病史-->
+        <view class="section-title">二、家族病史</view>
+        <view class="question-item">
+            <view class="question">您的父母、子女以及兄弟姐妹等一级亲属中，是否有食管癌病史？</view>
+            <view class="options">
+                <radio-group data-field="familyCancerHistory" bindchange="handleRadioChange">
+                    <label class="radio">
+                         <radio value="yes"/> 有
+                            <input 
+                                class="inline-input" 
+                                data-field="familyCancerDetails" 
+                                placeholder="请简要说明亲属关系及患病情况"
+                                value="{{formData.familyCancerDetails}}"
+                                bindinput="handleInput"
+                                wx:if="{{formData.familyCancerHistory === 'yes'}}"
+                            />
+                    </label>
+                    <label class="radio"><radio value="no"/> 无</label>
+                </radio-group>
+            </view>
+        </view>
+
+        <!--（二）饮食习惯与生活方式 -->
+        <view class="section-title">三、饮食习惯与生活方式</view>
+        <!-- 问题1 -->
+        <view class="question-item">
+        <view class="question">1. 您是否有热烫饮食的习惯（经常食用温度很高，感觉烫嘴的食物或饮品）？</view>
+        <view class="options">
+            <radio-group data-field="hotDiet" bindchange="handleRadioChange">
+            <label class="radio"><radio value="yes"/> 是</label>
+            <label class="radio"><radio value="occasionally"/> 偶尔</label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+        </view>
+        </view>
+
+        <!-- 问题2 -->
+        <view class="question-item">
+        <view class="question">2. 您是否经常摄入高盐饮食（口味偏重，食物中盐的添加量较多）？</view>
+        <view class="options">
+            <radio-group data-field="highSaltDiet" bindchange="handleRadioChange">
+            <label class="radio"><radio value="yes"/> 是</label>
+            <label class="radio"><radio value="occasionally"/> 偶尔</label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+        </view>
+        </view>
+
+        <!-- 问题3 -->
+        <view class="question-item">
+        <view class="question">3. 您是否经常食用腌制食品（如咸菜、咸肉、腌鱼等）？</view>
+        <view class="options">
+            <radio-group data-field="preservedFood" bindchange="handleRadioChange">
+            <label class="radio">
+                <radio value="often"/> 是，每周食用
+                <input 
+                class="small-input" 
+                data-field="preservedOften" 
+                type="number"
+                placeholder="次数"
+                value="{{formData.preservedOften}}"
+                bindinput="handleInput"
+                wx:if="{{formData.preservedFood === 'often'}}"
+                />
+                次及以上
+            </label>
+            <label class="radio">
+                <radio value="occasionally"/> 偶尔，每月食用
+                <input 
+                class="small-input" 
+                data-field="preservedOccasionally" 
+                type="number"
+                placeholder="次数"
+                value="{{formData.preservedOccasionally}}"
+                bindinput="handleInput"
+                wx:if="{{formData.preservedFood === 'occasionally'}}"
+                />
+                次
+            </label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+        </view>
+        </view>
+
+        <!--问题4-->
+        <view class="question-item">
+            <view class="question">4. 您是否吸烟？</view>
+            <view class="options">
+                <radio-group data-field="smoking" bindchange="handleRadioChange">
+                    <label class="radio">
+                        <radio value="yes"/>是，每日吸烟
+                        <input
+                            class="small-input"
+                            data-field="cigarettesPerDay"
+                            type="number"
+                            placeholder="支"
+                            value="{{formData.cigarettesPerDay}}"
+                            bindinput="handleInput"
+                            wx:if="{{formData.smoking === 'yes'}}"
+                        />
+                        支，烟龄
+                        <input 
+                            class="small-input" 
+                            data-field="smokingYears" 
+                            type="number"
+                            placeholder="年"
+                            value="{{formData.smokingYears}}"
+                            bindinput="handleInput"
+                            wx:if="{{formData.smoking === 'yes'}}"
+                        />
+                    </label>
+                    <label class="radio">
+                        <radio value="quit"/>已戒烟，戒烟前每日吸烟
+                        <input 
+                            class="small-input" 
+                            data-field="quitBefore" 
+                            type="number"
+                            placeholder="支"
+                            value="{{formData.quitBefore}}"
+                            bindinput="handleInput"
+                            wx:if="{{formData.smoking === 'quit'}}"
+                        />
+                        支，烟龄
+                        <input 
+                            class="small-input" 
+                            data-field="quitYears" 
+                            type="number"
+                            placeholder="年"
+                            value="{{formData.quitYears}}"
+                            bindinput="handleInput"
+                            wx:if="{{formData.smoking === 'quit'}}"
+                        />
+                        年，戒烟
+                        <input 
+                            class="small-input" 
+                            data-field="quitDuration" 
+                            type="number"
+                            placeholder="年"
+                            value="{{formData.quitDuration}}"
+                            bindinput="handleInput"
+                            wx:if="{{formData.smoking === 'quit'}}"
+                        />
+                        年
+                    </label>
+                    <label class="radio"><radio value="no"/>否</label>
+                </radio-group>
+            </view>
+        </view>
+        <!-- 问题5 -->
+        <view class="question-item">
+            <view class="question">5. 您是否有重度饮酒的习惯（男性每日饮用酒精量≥60g，女性每日饮用酒精量≥40g）？</view>
+            <view class="options">
+                <radio-group data-field="drinking" bindchange="handleRadioChange">
+                <label class="radio">
+                    <radio value="yes"/> 是，每日饮酒量相当于酒精
+                    <input 
+                    class="small-input" 
+                    data-field="alcoholAmount" 
+                    type="number"
+                    placeholder="g"
+                    value="{{formData.alcoholAmount}}"
+                    bindinput="handleInput"
+                    wx:if="{{formData.drinking === 'yes'}}"
+                    />
+                    g
+                </label>
+                <label class="radio"><radio value="occasionally"/> 偶尔饮酒</label>
+                <label class="radio"><radio value="no"/> 否</label>
+                </radio-group>
+            </view>
+            </view>
+
+        <!-- （三）既往病史 -->
+        <view class="section-title">四、既往病史</view>
+        <!-- 问题1：慢性食管炎 -->
+        <view class="question-item">
+        <view class="question">1. 您是否患有慢性食管炎？</view>
+        <view class="options">
+            <radio-group data-field="chronicEsophagitis" bindchange="handleRadioChange">
+            <label class="radio"><radio value="yes"/> 是</label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+            
+            <view class="condition-fields" wx:if="{{formData.chronicEsophagitis === 'yes'}}">
+            <view class="field-item">
+                <text class="field-label">患病时长：</text>
+                <input 
+                class="small-input" 
+                data-field="esophagitisYears" 
+                type="number"
+                placeholder="年"
+                value="{{formData.esophagitisYears}}"
+                bindinput="handleInput"
+                />
+            </view>
+            <view class="field-item">
+                <text class="field-label">病情描述（症状、治疗情况等）：</text>
+                <input 
+                class="normal-input" 
+                data-field="esophagitisDesc" 
+                placeholder="请输入"
+                value="{{formData.esophagitisDesc}}"
+                bindinput="handleInput"
+                />
+            </view>
+            </view>
+        </view>
+        </view>
+
+        <!-- 问题2：巴雷特食管 -->
+        <view class="question-item">
+        <view class="question">2. 您是否患有巴雷特（Barrett）食管？</view>
+        <view class="options">
+            <radio-group data-field="barrettEsophagus" bindchange="handleRadioChange">
+            <label class="radio"><radio value="yes"/> 是</label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+            
+            <view class="condition-fields" wx:if="{{formData.barrettEsophagus === 'yes'}}">
+            <view class="field-item">
+                <text class="field-label">患病时长：</text>
+                <input 
+                class="small-input" 
+                data-field="barrettYears" 
+                type="number"
+                placeholder="年"
+                value="{{formData.barrettYears}}"
+                bindinput="handleInput"
+                />
+            </view>
+            <view class="field-item">
+                <text class="field-label">病情描述：</text>
+                <input 
+                class="normal-input" 
+                data-field="barrettDesc" 
+                placeholder="请输入"
+                value="{{formData.barrettDesc}}"
+                bindinput="handleInput"
+                />
+            </view>
+            </view>
+        </view>
+        </view>
+        
+        <!-- 问题3：食管憩室 -->
+        <view class="question-item">
+        <view class="question">3. 您是否患有食管憩室？</view>
+        <view class="options">
+            <radio-group data-field="esophagealDiverticulum" bindchange="handleRadioChange">
+            <label class="radio"><radio value="yes"/> 是</label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+            
+            <view class="condition-fields" wx:if="{{formData.esophagealDiverticulum === 'yes'}}">
+            <view class="field-item">
+                <text class="field-label">患病时长：</text>
+                <input 
+                class="small-input" 
+                data-field="diverticulumYears" 
+                type="number"
+                placeholder="年"
+                value="{{formData.diverticulumYears}}"
+                bindinput="handleInput"
+                />
+            </view>
+            <view class="field-item">
+                <text class="field-label">病情描述：</text>
+                <input 
+                class="normal-input" 
+                data-field="diverticulumDesc" 
+                placeholder="请输入"
+                value="{{formData.diverticulumDesc}}"
+                bindinput="handleInput"
+                />
+            </view>
+            </view>
+        </view>
+        </view>
+        
+        <!-- 问题4：贲门失弛缓症 -->
+        <view class="question-item">
+        <view class="question">4. 您是否患有贲门失弛缓症？</view>
+        <view class="options">
+            <radio-group data-field="achalasia" bindchange="handleRadioChange">
+            <label class="radio"><radio value="yes"/> 是</label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+            
+            <view class="condition-fields" wx:if="{{formData.achalasia === 'yes'}}">
+            <view class="field-item">
+                <text class="field-label">患病时长：</text>
+                <input 
+                class="small-input" 
+                data-field="achalasiaYears" 
+                type="number"
+                placeholder="年"
+                value="{{formData.achalasiaYears}}"
+                bindinput="handleInput"
+                />
+            </view>
+            <view class="field-item">
+                <text class="field-label">病情描述：</text>
+                <input 
+                class="normal-input" 
+                data-field="achalasiaDesc" 
+                placeholder="请输入"
+                value="{{formData.achalasiaDesc}}"
+                bindinput="handleInput"
+                />
+            </view>
+            </view>
+        </view>
+        </view>
+        
+        <!-- 问题5：反流性食管炎 -->
+        <view class="question-item">
+        <view class="question">5. 您是否患有反流性食管炎？</view>
+        <view class="options">
+            <radio-group data-field="refluxEsophagitis" bindchange="handleRadioChange">
+            <label class="radio"><radio value="yes"/> 是</label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+            
+            <view class="condition-fields" wx:if="{{formData.refluxEsophagitis === 'yes'}}">
+            <view class="field-item">
+                <text class="field-label">患病时长：</text>
+                <input 
+                class="small-input" 
+                data-field="refluxYears" 
+                type="number"
+                placeholder="年"
+                value="{{formData.refluxYears}}"
+                bindinput="handleInput"
+                />
+            </view>
+            <view class="field-item">
+                <text class="field-label">病情描述：</text>
+                <input 
+                class="normal-input" 
+                data-field="refluxDesc" 
+                placeholder="请输入"
+                value="{{formData.refluxDesc}}"
+                bindinput="handleInput"
+                />
+            </view>
+            </view>
+        </view>
+        </view>
+        
+        <!-- 问题6：食管良性狭窄 -->
+        <view class="question-item">
+        <view class="question">6. 您是否患有食管良性狭窄？</view>
+        <view class="options">
+            <radio-group data-field="benignStricture" bindchange="handleRadioChange">
+            <label class="radio"><radio value="yes"/> 是</label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+            
+            <view class="condition-fields" wx:if="{{formData.benignStricture === 'yes'}}">
+            <view class="field-item">
+                <text class="field-label">患病时长：</text>
+                <input 
+                class="small-input" 
+                data-field="strictureYears" 
+                type="number"
+                placeholder="年"
+                value="{{formData.strictureYears}}"
+                bindinput="handleInput"
+                />
+            </view>
+            <view class="field-item">
+                <text class="field-label">病情描述：</text>
+                <input 
+                class="normal-input" 
+                data-field="strictureDesc" 
+                placeholder="请输入"
+                value="{{formData.strictureDesc}}"
+                bindinput="handleInput"
+                />
+            </view>
+            </view>
+        </view>
+        </view>
+        
+        <!-- 问题7：食管的癌前病变诊疗史 -->
+        <view class="question-item">
+        <view class="question">7. 您是否有食管的癌前病变诊疗史？</view>
+        <view class="options">
+            <radio-group data-field="precancerousLesions" bindchange="handleRadioChange">
+            <label class="radio">
+                <radio value="yes"/> 是
+                <input 
+                class="inline-input" 
+                data-field="precancerousDetails" 
+                placeholder="请简要说明病变类型及诊疗情况"
+                value="{{formData.precancerousDetails}}"
+                bindinput="handleInput"
+                wx:if="{{formData.precancerousLesions === 'yes'}}"
+                />
+            </label>
+            <label class="radio"><radio value="no"/> 否</label>
+            </radio-group>
+        </view>
+        </view>
+
+        <!--提交按钮-->
+        <button form-type="submit" class="submit-btn">提交问卷</button>
+    </form>
+</view>
+    
+

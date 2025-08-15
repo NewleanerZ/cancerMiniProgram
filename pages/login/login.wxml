@@ -1,0 +1,25 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <!-- 登录logo和标题 -->
+  <view class="login-header">
+    <image src="/images/cover.png" mode="widthFix" class="logo"></image>
+    <text class="title">一键登录</text>
+  </view>
+  
+  <!-- 登录按钮 -->
+  <button 
+    class="login-btn" 
+    bindtap="handleLogin"
+    loading="{{loading}}"
+    disabled="{{loading}}"
+    open-type="getUserInfo"
+    bindgetuserinfo="onGoUserInfo"
+  >
+    {{loading ? '登录中...' : '微信一键登录'}}
+  </button>
+  
+  <!-- 登录提示信息 -->
+  <view class="login-tip" wx:if="{{tipMessage}}">
+    <text>{{tipMessage}}</text>
+  </view>
+</view>

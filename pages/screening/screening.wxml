@@ -1,0 +1,12 @@
+<!--pages/screening/screening.wxml-->
+<navigator url="/pages/forms/esophagus/esophahus" class="nav-btn">
+    食管癌筛查
+</navigator>
+
+<navigator url="/pages/forms/stomach/stomach" class="nav-btn">
+    胃癌筛查
+</navigator>
+
+<navigator url="/pages/forms/colorectum/colorectum" class="nav-btn">
+    结直肠癌筛查
+</navigator>

@@ -1,0 +1,139 @@
+/* pages/disclaimer.wxss */
+.container {
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+background-color: #f8f9fa;
+padding: 30rpx 30rpx; /* 移除底部 padding，后续通过按钮组自身 padding 控制 */
+/* 增加底部内边距，避免内容被固定按钮遮挡 */
+padding-bottom: 140rpx;
+}
+
+.title {
+font-size: 38rpx;
+font-weight: 600;
+color: #2c3e50;
+text-align: center;
+margin: 20rpx 0 40rpx;
+padding-bottom: 20rpx;
+border-bottom: 2rpx solid #eee;
+letter-spacing: 1rpx;
+}
+
+.content {
+width: 100%;
+flex: 1;
+min-height: 400rpx;
+margin-bottom: 40rpx;
+border: none;
+border-radius: 16rpx;
+padding: 30rpx;
+background-color: #fff;
+box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+font-size: 28rpx;
+line-height: 1.8;
+}
+
+.text {
+white-space: pre-line;
+color: #4a4a4a;
+}
+
+/* 段落间距优化 */
+.text::before {
+content: '';
+display: block;
+height: 15rpx;
+}
+
+/* 标题行加粗 */
+.text span.section-title {
+font-weight: 600;
+color: #2c3e50;
+}
+
+/* 核心修改：按钮组固定在底部 */
+.button-group {
+/* 固定定位到页面底部 */
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+/* 与页面左右内边距保持一致 */
+padding: 20rpx 30rpx 30rpx;
+/* 背景色覆盖底部内容，避免半透明问题 */
+background-color: #f8f9fa;
+/* 增加顶部阴影，区分内容区域 */
+box-shadow: 0 -2rpx 10rpx rgba (0, 0, 0, 0.03);
+display: flex;
+justify-content: space-between;
+gap: 30rpx;
+}
+
+.button {
+flex: 1;
+height: 90rpx;
+/* 确保文字居中的核心设置 */
+display: flex;
+justify-content: center;
+align-items: center;
+line-height: 1;
+text-align: center;
+
+font-size: 32rpx;
+font-weight: 500;
+border-radius: 45rpx;
+border: none;
+transition: all 0.2s ease;
+}
+
+.agree {
+background-color: #07c160;
+color: #fff;
+box-shadow: 0 6rpx 16rpx rgba(7, 193, 96, 0.25);
+}
+
+.agree:active {
+background-color: #06b056;
+transform: scale(0.98);
+box-shadow: 0 4rpx 10rpx rgba(7, 193, 96, 0.2);
+}
+
+.refuse {
+background-color: #f5f5f5;
+color: #5c5c5c;
+box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.refuse:active {
+background-color: #e8e8e8;
+transform: scale(0.98);
+box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 添加到原样式中 */
+.content {
+  /* 原有样式保持不变 */
+  padding: 20rpx 30rpx;
+}
+
+.text-paragraph {
+  display: block;
+  margin-bottom: 24rpx;
+  line-height: 1.6;
+}
+
+.text-heading {
+  display: block;
+  margin: 30rpx 0 15rpx;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.5;
+}
+
+.text-item {
+  display: block;
+  margin-bottom: 18rpx;
+  padding-left: 10rpx;
+  line-height: 1.6;
+}

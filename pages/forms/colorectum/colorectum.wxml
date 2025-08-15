@@ -1,0 +1,240 @@
+<!--pages/forms/colorectum/colorectum.wxml-->
+<!-- pages/colorectal/colorectal.wxml -->
+<view class="container">
+  <form bindsubmit="submitForm">
+    <view class="form-header">
+      <view class="title">结直肠癌筛查</view>
+      <view class="subtitle">结直肠癌筛查高危因素量化问卷</view>
+    </view>
+
+    <!-- 一、一级亲属有结直肠癌史 -->
+    <view class="question-group">
+      <view class="question-number">一、</view>
+      <view class="question-content">
+        <view class="question-text">一级亲属有结直肠癌史</view>
+        <radio-group data-field="firstDegreeRelative" bindchange="handleRadioChange" class="radio-group">
+          <label class="radio-item">
+            <radio value="yes" color="#1677ff"/> 是
+            <input 
+              class="conditional-input" 
+              data-field="relativeRelation" 
+              placeholder="注明亲属关系"
+              value="{{formData.relativeRelation}}"
+              bindinput="handleInput"
+              wx:if="{{formData.firstDegreeRelative === 'yes'}}"
+            />
+          </label>
+          <label class="radio-item">
+            <radio value="no" color="#1677ff"/> 否
+          </label>
+          <label class="radio-item">
+            <radio value="uncertain" color="#1677ff"/> 不确定
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 二、本人有癌症史 -->
+    <view class="question-group">
+      <view class="question-number">二、</view>
+      <view class="question-content">
+        <view class="question-text">本人有癌症史（任何恶性肿瘤病史）</view>
+        <radio-group data-field="personalCancerHistory" bindchange="handleRadioChange" class="radio-group">
+          <label class="radio-item">
+            <radio value="yes" color="#1677ff"/> 是
+            <input 
+              class="conditional-input" 
+              data-field="cancerType" 
+              placeholder="注明癌症类型"
+              value="{{formData.cancerType}}"
+              bindinput="handleInput"
+              wx:if="{{formData.personalCancerHistory === 'yes'}}"
+            />
+          </label>
+          <label class="radio-item">
+            <radio value="no" color="#1677ff"/> 否
+          </label>
+          <label class="radio-item">
+            <radio value="uncertain" color="#1677ff"/> 不确定
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 三、本人有肠道息肉史 -->
+    <view class="question-group">
+      <view class="question-number">三、</view>
+      <view class="question-content">
+        <view class="question-text">本人有肠道息肉史</view>
+        <radio-group data-field="intestinalPolyps" bindchange="handleRadioChange" class="radio-group">
+          <label class="radio-item">
+            <radio value="yes" color="#1677ff"/> 是
+            <input 
+              class="conditional-input" 
+              data-field="polypType" 
+              placeholder="注明息肉类型"
+              value="{{formData.polypType}}"
+              bindinput="handleInput"
+              wx:if="{{formData.intestinalPolyps === 'yes'}}"
+            />
+          </label>
+          <label class="radio-item">
+            <radio value="no" color="#1677ff"/> 否
+          </label>
+          <label class="radio-item">
+            <radio value="uncertain" color="#1677ff"/> 不确定
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 四、多项风险因素 -->
+    <view class="question-group">
+      <view class="question-number">四、</view>
+      <view class="question-content">
+        <view class="question-text">其余高危因素</view>
+        
+        <!-- 1. 慢性便秘 -->
+        <view class="sub-question">
+          <view class="sub-question-number">1.</view>
+          <view class="sub-question-content">
+            <view class="sub-question-text">慢性便秘（近2年来每年便秘在2个月以上）</view>
+            <radio-group data-field="chronicConstipation" bindchange="handleRadioChange" class="radio-group">
+              <label class="radio-item">
+                <radio value="yes" color="#1677ff"/> 是
+              </label>
+              <label class="radio-item">
+                <radio value="no" color="#1677ff"/> 否
+              </label>
+              <label class="radio-item">
+                <radio value="uncertain" color="#1677ff"/> 不确定
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        
+        <!-- 2. 慢性腹泻 -->
+        <view class="sub-question">
+          <view class="sub-question-number">2.</view>
+          <view class="sub-question-content">
+            <view class="sub-question-text">慢性腹泻（近2年来腹泻累计持续超过3个月，每次发作持续时间在1周以上）</view>
+            <radio-group data-field="chronicDiarrhea" bindchange="handleRadioChange" class="radio-group">
+              <label class="radio-item">
+                <radio value="yes" color="#1677ff"/> 是
+              </label>
+              <label class="radio-item">
+                <radio value="no" color="#1677ff"/> 否
+              </label>
+              <label class="radio-item">
+                <radio value="uncertain" color="#1677ff"/> 不确定
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        
+        <!-- 3. 黏液血便 -->
+        <view class="sub-question">
+          <view class="sub-question-number">3.</view>
+          <view class="sub-question-content">
+            <view class="sub-question-text">黏液血便</view>
+            <radio-group data-field="mucusBloodStool" bindchange="handleRadioChange" class="radio-group">
+              <label class="radio-item">
+                <radio value="yes" color="#1677ff"/> 是
+              </label>
+              <label class="radio-item">
+                <radio value="no" color="#1677ff"/> 否
+              </label>
+              <label class="radio-item">
+                <radio value="uncertain" color="#1677ff"/> 不确定
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        
+        <!-- 4. 不良生活事件史 -->
+        <view class="sub-question">
+          <view class="sub-question-number">4.</view>
+          <view class="sub-question-content">
+            <view class="sub-question-text">不良生活事件史（发生在近20年内，并在事件发生后对调查对象造成较大精神创伤或痛苦）</view>
+            <radio-group data-field="badLifeEvents" bindchange="handleRadioChange" class="radio-group">
+              <label class="radio-item">
+                <radio value="yes" color="#1677ff"/> 是
+                <input 
+                  class="conditional-input" 
+                  data-field="eventDescription" 
+                  placeholder="简要说明事件"
+                  value="{{formData.eventDescription}}"
+                  bindinput="handleInput"
+                  wx:if="{{formData.badLifeEvents === 'yes'}}"
+                />
+              </label>
+              <label class="radio-item">
+                <radio value="no" color="#1677ff"/> 否
+              </label>
+              <label class="radio-item">
+                <radio value="uncertain" color="#1677ff"/> 不确定
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        
+        <!-- 5. 慢性阑尾炎或阑尾切除史 -->
+        <view class="sub-question">
+          <view class="sub-question-number">5.</view>
+          <view class="sub-question-content">
+            <view class="sub-question-text">慢性阑尾炎或阑尾切除史</view>
+            <radio-group data-field="appendicitisHistory" bindchange="handleRadioChange" class="radio-group">
+              <label class="radio-item">
+                <radio value="yes" color="#1677ff"/> 是
+                <input 
+                  class="conditional-input" 
+                  data-field="appendectomyTime" 
+                  placeholder="注明手术时间"
+                  value="{{formData.appendectomyTime}}"
+                  bindinput="handleInput"
+                  wx:if="{{formData.appendicitisHistory === 'yes'}}"
+                />
+              </label>
+              <label class="radio-item">
+                <radio value="no" color="#1677ff"/> 否
+              </label>
+              <label class="radio-item">
+                <radio value="uncertain" color="#1677ff"/> 不确定
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        
+        <!-- 6. 慢性胆道疾病史或胆囊切除史 -->
+        <view class="sub-question">
+          <view class="sub-question-number">6.</view>
+          <view class="sub-question-content">
+            <view class="sub-question-text">慢性胆道疾病史或胆囊切除史</view>
+            <radio-group data-field="biliaryDiseaseHistory" bindchange="handleRadioChange" class="radio-group">
+              <label class="radio-item">
+                <radio value="yes" color="#1677ff"/> 是
+                <input 
+                  class="conditional-input" 
+                  data-field="biliaryDetails" 
+                  placeholder="注明疾病类型/手术时间"
+                  value="{{formData.biliaryDetails}}"
+                  bindinput="handleInput"
+                  wx:if="{{formData.biliaryDiseaseHistory === 'yes'}}"
+                />
+              </label>
+              <label class="radio-item">
+                <radio value="no" color="#1677ff"/> 否
+              </label>
+              <label class="radio-item">
+                <radio value="uncertain" color="#1677ff"/> 不确定
+              </label>
+            </radio-group>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button form-type="submit" class="submit-btn">提交筛查问卷</button>
+  </form>
+</view>

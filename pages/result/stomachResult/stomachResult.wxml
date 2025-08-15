@@ -1,0 +1,44 @@
+<!--pages/result/stomachResult/stomachResult.wxml-->
+<!-- pages/result/stomachResult/stomachResult.wxml -->
+<view class="container">
+  <!-- 结果显示区域 -->
+  <view class="result-container">
+    <view class="result-title">胃癌筛查结果</view>
+    
+    <!-- 结果内容（根据风险等级动态显示） -->
+    <view class="result-content">
+      <text class="risk-level {{result === 'high' ? 'high-risk' : 'low-risk'}}">
+        {{result === 'high' ? '高风险人群' : '非高风险人群'}}
+      </text>
+      
+      <!-- 建议内容（带滚动） -->
+      <scroll-view class="suggestion-scroll" scroll-y="true">
+        <view class="suggestion-content">
+          <block wx:if="{{result === 'high'}}">
+            <text>建议优先做胃镜检查：</text>
+            <text>第一次筛查：做普通白光内镜检查，若发现可疑的地方，会取一点组织做病理化验。</text>
+            <text>后续检查频率：根据检查结果定：</text>
+            <view class="suggestion-list">
+              <text>• 若胃里没发现异常，或只有轻微炎症：每 5 年查一次。</text>
+              <text>• 若胃窦或胃体有萎缩、肠化（胃黏膜的一种变化）：每 3 年查一次。</text>
+              <text>• 若胃底部或整个胃都有萎缩、肠化：每年查一次。</text>
+              <text>• 若发现低级别上皮内瘤变（癌前病变的早期）：每年查一次。</text>
+              <text>• 若发现高级别上皮内瘤变（需要密切关注的癌前病变）：每 3-6 个月查一次。</text>
+            </view>
+          </block>
+          
+          <block wx:else>
+            <text>生活上尽量少吃盐、戒烟，少喝酒。</text>
+            <text>从 45 岁开始，每 5-10 年做一次胃镜筛查，提前预防更放心。</text>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  
+  <!-- 底部导航按钮 -->
+  <view class="nav-buttons">
+    <button class="nav-btn home-btn" bindtap="navigateToHome">返回主页</button>
+    <button class="nav-btn advice-btn" bindtap="navigateToGuidance">更多建议</button>
+  </view>
+</view>

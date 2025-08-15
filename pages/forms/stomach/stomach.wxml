@@ -1,0 +1,297 @@
+<view class="container">
+  <form bindsubmit="submitForm">
+    <!-- 一、基础信息 -->
+    <view class="section-title">一、基础信息</view>
+    
+    <!-- 1. 年龄 -->
+    <view class="question-item">
+      <view class="question">1. 年龄：</view>
+      <view class="options">
+        <radio-group data-field="ageGroup" bindchange="handleRadioChange">
+          <label class="radio"><radio value="<45"/> 小于45岁（无需继续填写）</label>
+          <label class="radio"><radio value=">=45"/> 大于等于45岁</label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 2. 性别 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45' || !formData.ageGroup}}">
+      <view class="question">2. 性别：</view>
+      <view class="options">
+        <radio-group data-field="gender" bindchange="handleRadioChange">
+          <label class="radio"><radio value="male"/> 男</label>
+          <label class="radio"><radio value="female"/> 女</label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 3. 长期居住地 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45' || !formData.ageGroup}}">
+      <view class="question">3. 长期居住地：</view>
+      <view class="options">
+        <input 
+          class="normal-input" 
+          data-field="residence" 
+          placeholder="请填写长期居住地"
+          value="{{formData.residence}}"
+          bindinput="handleInput"
+        />
+      </view>
+    </view>
+
+    <!-- 二、健康与疾病史 -->
+    <view class="section-title" wx:if="{{formData.ageGroup === '>=45'}}">二、健康与疾病史</view>
+    
+    <!-- 1. 基础疾病 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45'}}">
+      <view class="question">1. 基础疾病（可多选）：</view>
+      <view class="options">
+        <checkbox-group data-field="basicDiseases" bindchange="handleCheckboxChange">
+          <label class="radio"><checkbox value="hypertension"/> 高血压</label>
+          <label class="radio"><checkbox value="diabetes"/> 糖尿病</label>
+          <label class="radio"><checkbox value="cerebralInfarction"/> 脑梗塞</label>
+          <label class="radio">
+            <checkbox value="other"/> 其他
+            <input 
+              class="inline-input" 
+              data-field="otherBasicDisease" 
+              placeholder="请注明"
+              value="{{formData.otherBasicDisease}}"
+              bindinput="handleInput"
+              wx:if="{{formData.basicDiseases && formData.basicDiseases.includes('other')}}"
+            />
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+
+    <!-- 2. 胃部疾病史 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45'}}">
+      <view class="question">2. 胃部疾病史（可多选）：</view>
+      <view class="options">
+        <checkbox-group data-field="stomachDiseases" bindchange="handleCheckboxChange">
+          <label class="radio"><checkbox value="chronicAtrophicGastritis"/> 慢性萎缩性胃炎</label>
+          <label class="radio"><checkbox value="gastricPolyps"/> 胃息肉</label>
+          <label class="radio"><checkbox value="gastricUlcer"/> 胃溃疡</label>
+          <label class="radio"><checkbox value="postoperativeStomach"/> 胃手术后残胃</label>
+          <label class="radio"><checkbox value="perniciousAnemia"/> 恶性贫血</label>
+          <label class="radio"><checkbox value="hypertrophicGastritis"/> 肥厚性胃炎</label>
+          <label class="radio"><checkbox value="none"/> 无</label>
+        </checkbox-group>
+      </view>
+    </view>
+
+    <!-- 3. 家族肿瘤史 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45'}}">
+      <view class="question">3. 家族肿瘤史：</view>
+      <view class="question">一级亲属（父母/子女/亲兄弟姐妹）是否患胃癌或食管癌？</view>
+      <view class="options">
+        <radio-group data-field="familyCancerHistory" bindchange="handleRadioChange">
+          <label class="radio">
+            <radio value="yes"/> 是
+            <input 
+              class="inline-input" 
+              data-field="familyRelation" 
+              placeholder="注明亲属关系"
+              value="{{formData.familyRelation}}"
+              bindinput="handleInput"
+              wx:if="{{formData.familyCancerHistory === 'yes'}}"
+            />
+          </label>
+          <label class="radio"><radio value="no"/> 否</label>
+          <label class="radio"><radio value="uncertain"/> 不确定</label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 4. 幽门螺杆菌感染史 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45'}}">
+      <view class="question">4. 幽门螺杆菌（Hp）感染史：</view>
+      <view class="question">(若受访者不知晓检测结果，建议记录为"未检测"，并标注需优先安排Hp检测。)</view>
+      <view class="options">
+        <radio-group data-field="hpInfection" bindchange="handleRadioChange">
+          <label class="radio">
+            <radio value="positive"/> 曾检测阳性
+            <view class="condition-fields" wx:if="{{formData.hpInfection === 'positive'}}">
+              <view class="field-item">
+                <text class="field-label">检测方式：</text>
+                <radio-group data-field="hpTestMethod" bindchange="handleRadioChange">
+                  <label class="radio"><radio value="breathTest"/> 呼气试验</label>
+                  <label class="radio"><radio value="serumAntibody"/> 血清抗体</label>
+                  <label class="radio"><radio value="fecalAntigen"/> 粪便抗原</label>
+                </radio-group>
+              </view>
+            </view>
+          </label>
+          <label class="radio"><radio value="neverTested"/> 从未检测</label>
+          <label class="radio"><radio value="negative"/> 检测阴性</label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 5. 近期用药 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45'}}">
+      <view class="question">5. 近期用药（近3个月）：</view>
+      <view class="options">
+        <checkbox-group data-field="recentMedication" bindchange="handleCheckboxChange">
+          <label class="radio"><checkbox value="nsaid"/> 非甾体抗炎药（如阿司匹林、布洛芬）</label>
+          <label class="radio"><checkbox value="anticoagulant"/> 抗凝药</label>
+          <label class="radio"><checkbox value="hormone"/> 激素类药物</label>
+          <label class="radio"><checkbox value="none"/> 无</label>
+        </checkbox-group>
+      </view>
+    </view>
+
+    <!-- 三、生活习惯 -->
+    <view class="section-title" wx:if="{{formData.ageGroup === '>=45'}}">三、生活习惯</view>
+    
+    <!-- 1. 吸烟史 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45'}}">
+      <view class="question">1. 吸烟史：</view>
+      <view class="options">
+        <radio-group data-field="smoking" bindchange="handleRadioChange">
+          <label class="radio"><radio value="never"/> 从不吸烟</label>
+          <label class="radio">
+            <radio value="current"/> 当前吸烟：
+            <input 
+              class="small-input" 
+              data-field="smokingYears" 
+              type="number"
+              placeholder="年"
+              value="{{formData.smokingYears}}"
+              bindinput="handleInput"
+              wx:if="{{formData.smoking === 'current'}}"
+            />
+            年，平均
+            <input 
+              class="small-input" 
+              data-field="cigarettesPerDay" 
+              type="number"
+              placeholder="支/日"
+              value="{{formData.cigarettesPerDay}}"
+              bindinput="handleInput"
+              wx:if="{{formData.smoking === 'current'}}"
+            />
+            支/日
+          </label>
+          <label class="radio">
+            <radio value="quit"/> 已戒烟：戒烟前
+            <input 
+              class="small-input" 
+              data-field="quitSmokingBefore" 
+              type="number"
+              placeholder="支/日"
+              value="{{formData.quitSmokingBefore}}"
+              bindinput="handleInput"
+              wx:if="{{formData.smoking === 'quit'}}"
+            />
+            支/日，戒烟
+            <input 
+              class="small-input" 
+              data-field="quitSmokingYears" 
+              type="number"
+              placeholder="年"
+              value="{{formData.quitSmokingYears}}"
+              bindinput="handleInput"
+              wx:if="{{formData.smoking === 'quit'}}"
+            />
+            年
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 2. 饮酒史 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45'}}">
+      <view class="question">2. 饮酒史：</view>
+      <view class="options">
+        <radio-group data-field="drinking" bindchange="handleRadioChange">
+          <label class="radio"><radio value="never"/> 从不饮酒</label>
+          <label class="radio">
+            <radio value="current"/> 当前饮酒：
+            <view class="condition-fields" wx:if="{{formData.drinking === 'current'}}">
+              <view class="field-item">
+                <text class="field-label">类型：</text>
+                <checkbox-group data-field="alcoholType" bindchange="handleCheckboxChange">
+                  <label class="radio"><checkbox value="liquor"/> 白酒</label>
+                  <label class="radio"><checkbox value="beer"/> 啤酒</label>
+                  <label class="radio"><checkbox value="wine"/> 葡萄酒</label>
+                  <label class="radio"><checkbox value="other"/> 其他</label>
+                </checkbox-group>
+              </view>
+              <view class="field-item">
+                <text class="field-label">频率：</text>
+                <input 
+                  class="small-input" 
+                  data-field="alcoholFrequency" 
+                  type="number"
+                  placeholder="次/周"
+                  value="{{formData.alcoholFrequency}}"
+                  bindinput="handleInput"
+                />
+                次/周，平均
+                <input 
+                  class="small-input" 
+                  data-field="alcoholAmount" 
+                  type="number"
+                  placeholder="两"
+                  value="{{formData.alcoholAmount}}"
+                  bindinput="handleInput"
+                />
+                两
+              </view>
+            </view>
+          </label>
+          <label class="radio">
+            <radio value="quit"/> 已戒酒：戒酒前饮酒
+            <input 
+              class="small-input" 
+              data-field="quitDrinkingYears" 
+              type="number"
+              placeholder="年"
+              value="{{formData.quitDrinkingYears}}"
+              bindinput="handleInput"
+              wx:if="{{formData.drinking === 'quit'}}"
+            />
+            年
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 3. 饮食偏好 -->
+    <view class="question-item" wx:if="{{formData.ageGroup === '>=45'}}">
+      <view class="question">3. 饮食偏好：</view>
+      
+      <view class="options">
+        <view class="field-item">
+          <text class="field-label">盐摄入量：</text>
+          <radio-group data-field="saltIntake" bindchange="handleRadioChange">
+            <label class="radio"><radio value="≤10"/> ≤10g/日</label>
+            <label class="radio"><radio value=">10"/> >10g/日（如常吃咸菜/酱类/腌肉）</label>
+          </radio-group>
+        </view>
+        
+        <view class="field-item">
+          <text class="field-label">腌制食品摄入：</text>
+          <radio-group data-field="preservedFood" bindchange="handleRadioChange">
+            <label class="radio"><radio value=">=3"/> >=3次/周</label>
+            <label class="radio"><radio value="occasionally"/> 偶尔</label>
+            <label class="radio"><radio value="rarely"/> 几乎不吃</label>
+          </radio-group>
+        </view>
+        
+        <view class="field-item">
+          <text class="field-label">新鲜蔬果摄入：</text>
+          <radio-group data-field="freshFood" bindchange="handleRadioChange">
+            <label class="radio"><radio value=">=500"/> 大于等于500g/日</label>
+            <label class="radio"><radio value="<500"/> 小于500g/日</label>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button form-type="submit" class="submit-btn">提交问卷</button>
+  </form>
+</view>

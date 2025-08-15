@@ -1,0 +1,319 @@
+<!--pages/healthGuide/esophagusGuide/esophagusGuide.wxml-->
+<!--pages/healthGuide/esophagusGuide/esophagusGuide.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="navbar">
+    <text class="navbar-title">食管癌健康指导</text>
+    <view class="navbar-menu" bindtap="toggleMenu">
+      <image src="" mode="widthFix" class="menu-icon"></image>
+    </view>
+  </view>
+
+  <!-- 导航菜单蒙层 -->
+  <view class="menu-mask" wx:if="{{showMenu}}" bindtap="toggleMenu"></view>
+  
+  <!-- 导航菜单面板 -->
+  <view class="menu-panel" wx:if="{{showMenu}}">
+    <scroll-view scroll-y class="menu-scroll">
+      <view class="menu-item" bindtap="scrollToSection" data-section="intro">概述</view>
+      <view class="menu-item" bindtap="scrollToSection" data-section="risk-factors">规避危险因素</view>
+      <view class="menu-item" bindtap="scrollToSection" data-section="protective-factors">强化保护因素</view>
+      <view class="menu-item" bindtap="scrollToSection" data-section="early-symptoms">早期症状</view>
+      <view class="menu-item" bindtap="scrollToSection" data-section="references">参考文献</view>
+    </scroll-view>
+  </view>
+
+  <!-- 主内容滚动区 -->
+  <scroll-view 
+    class="main-scroll" 
+    scroll-y 
+    bindscroll="onScroll"
+    scroll-with-animation
+    id="mainScroll"
+  >
+    <view class="content">
+      <!-- 概述部分 -->
+      <view id="intro" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-blue">
+            <text class="icon">💡</text>
+          </view>
+          <text class="section-title">食管癌概述</text>
+        </view>
+        <view class="section-content">
+          <text class="content-text">
+            食管癌，作为一种原发于食管黏膜上皮的恶性肿瘤，严重威胁着人们的健康，其发病率和死亡率在全部恶性肿瘤中分别位居第六位和第四位。了解与之相关的健康指导信息，无论是对于预防发病，还是患者治疗后的康复，都起着极为关键的作用。
+          </text>
+          <view class="tip-box">
+            <text class="tip-icon">⚠️</text>
+            <text class="tip-text">早期预防和干预是降低食管癌发病风险的关键，了解相关知识有助于保护您和家人的健康。</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 规避危险因素 -->
+      <view id="risk-factors" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-red">
+            <text class="icon">🚫</text>
+          </view>
+          <text class="section-title">一、规避危险因素</text>
+        </view>
+        
+        <!-- 不良饮食习惯调整 -->
+        <view class="subsection">
+          <text class="subsection-title">（一）不良饮食习惯调整</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">忌刺激性与不良质地食物</text>
+                <text class="item-text">
+                  长期食用腌晒、熏烤、油炸、辛辣食物，以及剩饭剩菜，会对食管黏膜造成持续刺激与损伤。例如，熏烤食物中含有多环芳烃类致癌物，可增加食管癌发病风险。而过硬、粗糙的食物在吞咽过程中易划伤食管黏膜，为癌细胞的滋生创造条件。像一些地区常食用的粗杂粮煎饼，若进食过快，就可能对食管产生伤害。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">拒绝高盐与霉变饮食</text>
+                <text class="item-text">
+                  高盐饮食会破坏食管黏膜的完整性，使食管黏膜更易受到致癌物的侵袭。霉变食物中含有的黄曲霉毒素等强致癌物，更是食管癌的重要诱因。比如发霉的玉米、花生，一旦被误食，其携带的毒素可能在体内不断积累，引发食管病变。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">摒弃热烫与过快进食习惯</text>
+                <text class="item-text">
+                  食管黏膜较为娇嫩，适宜的进食温度在10℃-40℃之间。当食物温度超过65℃时，就如同给食管黏膜"洗澡"，反复的热刺激会导致黏膜细胞损伤、增生，进而引发癌变。此外，进食速度过快，食物未经充分咀嚼就进入食管，不仅加重食管的消化负担，还容易因粗糙食物的快速通过而擦伤食管黏膜。比如有的人吃火锅时，刚从锅中捞出食物就急忙咽下，这对食管的伤害极大。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">4.</text>
+              <view class="item-content">
+                <text class="item-title">保持规律进食</text>
+                <text class="item-text">
+                  不规律的饮食，如饥一顿饱一顿，会打乱食管正常的蠕动和消化节奏，影响食管的正常功能。长期如此，食管黏膜在这种不稳定的环境下，容易出现病变。比如一些上班族，因工作繁忙，经常错过正常饭点，长期下来，食管健康就会受到威胁。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 杜绝不良生活嗜好 -->
+        <view class="subsection">
+          <text class="subsection-title">（二）杜绝不良生活嗜好</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">严格戒烟</text>
+                <text class="item-text">
+                  吸烟与食管癌的发生密切相关，每日吸烟量及吸烟年限与患病风险呈正相关。香烟燃烧产生的焦油、尼古丁等多种有害物质，会随着烟雾进入食管，对食管黏膜产生直接的刺激和损伤，长期积累会增加食管癌的发病几率。据统计，每日吸烟量1-9支、10-19支和20支以上者，食管癌发病风险分别是不吸烟者的1.36倍、1.38倍和3.53倍；吸烟年限20-29年、30-39年和40年以上者，食管癌发病风险分别是不吸烟者的1.78倍、1.89倍和2.15倍。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">限制饮酒</text>
+                <text class="item-text">
+                  酒精是食管癌的主要诱发因素之一。过量饮酒会使食管黏膜处于充血、水肿状态，降低食管黏膜的防御功能，同时酒精还可能作为致癌物的溶剂，促进致癌物进入食管黏膜细胞。每日酒精摄入量每增加10g，食管鳞癌风险增加25%；对亚洲人群的调查显示，每周酒精摄入量超过200g者的食管癌发病风险是不饮酒者的5.80倍。特别是白酒，其度数较高，对食管的刺激更为强烈。比如有些人长期大量饮用高度白酒，患食管癌的风险就会显著增加。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 维持良好身体状态 -->
+        <view class="subsection">
+          <text class="subsection-title">（三）维持良好身体状态</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">合理控制体重</text>
+                <text class="item-text">
+                  体重过轻（BMI小于18.5kg/m²）时，身体营养储备不足，免疫力下降，食管黏膜的修复和更新能力减弱，难以有效抵御外界致癌物的侵害。而BMI>24kg/m²可能对食管癌有一定保护作用，合理的体重意味着身体有较为充足的营养供应和良好的代谢状态，有助于维持食管黏膜的健康。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">积极管理基础疾病</text>
+                <text class="item-text">
+                  糖尿病患者由于血糖长期处于较高水平，会影响食管的神经和血管功能，导致食管蠕动减慢、排空延迟，食物在食管内停留时间延长，增加对食管黏膜的刺激。高血压、高血脂患者，其体内的代谢紊乱可能影响血管内皮功能，导致食管黏膜的血液供应受到影响，降低食管的抵抗力。因此，规范管理这些基础疾病，严格按照医嘱服药，定期监测血糖、血压、血脂指标，将其控制在正常范围内，对于预防食管癌具有积极意义。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 关注情绪与心理调节 -->
+        <view class="subsection">
+          <text class="subsection-title">（四）关注情绪与心理调节</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-text">
+                  长期处于易怒、焦虑、抑郁等不良情绪状态下，会导致神经内分泌系统紊乱，影响机体的免疫功能。免疫系统是人体抵御癌细胞的重要防线，当免疫功能下降时，机体对食管内异常细胞的监测和清除能力减弱，使得癌细胞更容易生长和扩散。保持心情舒畅、情绪稳定，通过适当的方式，如运动、听音乐、与朋友倾诉等，减轻精神压力，有助于维持身体的内环境稳定，保护食管健康。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 重视地域与环境因素 -->
+        <view class="subsection">
+          <text class="subsection-title">（五）重视地域与环境因素</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-text">
+                  农村地区由于经济发展水平相对较低，居民的健康意识相对淡薄，饮食结构也较为单一，且可能存在饮用水水质不佳等问题，这些因素综合起来，使得农村地区食管癌发病率相对较高。农村居民应更加注重改善饮食结构，增加蔬菜、水果的摄入，同时关注饮用水安全，定期进行健康体检，以便早期发现食管病变。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 强化保护因素 -->
+      <view id="protective-factors" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-green">
+            <text class="icon">✅</text>
+          </view>
+          <text class="section-title">二、强化保护因素</text>
+        </view>
+        
+        <!-- 优化饮食结构 -->
+        <view class="subsection">
+          <text class="subsection-title">（一）优化饮食结构</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">增加蔬果摄入</text>
+                <text class="item-text">
+                  蔬菜和水果富含维生素（如维生素C、E等）、矿物质（如锌、硒等）和膳食纤维等营养成分。维生素C具有抗氧化作用，能清除体内自由基，减少细胞的氧化损伤，降低食管癌的发病风险；维生素E可保护细胞膜的完整性，维持细胞的正常功能。锌、硒等矿物质参与人体多种酶的合成，对维持食管黏膜细胞的正常代谢和免疫功能起着重要作用。膳食纤维能促进肠道蠕动，减少有害物质在肠道内的停留时间，降低致癌物对食管的间接影响。研究表明，多摄入蔬菜和水果可使食管鳞癌发病风险降低44%-47%。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">保证膳食纤维摄入</text>
+                <text class="item-text">
+                  膳食纤维可分为可溶性膳食纤维和不可溶性膳食纤维。可溶性膳食纤维能在肠道内形成黏性物质，吸附肠道内的有害物质并促进其排出；不可溶性膳食纤维则能增加粪便体积，促进肠道蠕动，预防便秘。每日膳食纤维摄入量每增加10g，Barrett食管炎和食管癌的风险降低31%。全谷物、豆类、蔬菜的茎和叶等都是膳食纤维的良好来源。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">均衡饮食</text>
+                <text class="item-text">
+                  食物多样，保证谷类、薯类、肉类、奶类、豆制品等各类食物的合理摄入。谷类和薯类为身体提供碳水化合物，是能量的主要来源；肉类、奶类、豆制品富含优质蛋白质，是身体细胞修复和生长的重要原料。适量吃鱼、禽、蛋、瘦肉，可获取丰富的蛋白质、不饱和脂肪酸、维生素和矿物质等营养成分，有助于维持身体的正常生理功能，增强机体抵抗力，保护食管健康。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 规律生活作息 -->
+        <view class="subsection">
+          <text class="subsection-title">（二）规律生活作息</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">充足睡眠</text>
+                <text class="item-text">
+                  睡眠过程中，身体会进行自我修复和调整，食管黏膜细胞也会进行更新和修复。长期熬夜会打乱人体的生物钟，影响食管黏膜的正常代谢和修复过程，降低食管的自我保护能力。保证每晚7-8小时的充足睡眠，有助于维持食管黏膜的健康状态，增强身体的免疫力，预防食管癌的发生。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">适度运动</text>
+                <text class="item-text">
+                  身体状况允许时，在医生指导下进行适量运动，如散步、慢跑、太极拳、瑜伽等。运动可以促进血液循环，增强心肺功能，提高机体的代谢水平和免疫力。运动还能促进胃肠蠕动，有助于食物的消化和排空，减少食物在食管内的停留时间，降低对食管黏膜的刺激。但要注意运动强度适中，以不引起劳累和不适为宜，避免过度运动对身体造成损伤。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 早期症状 -->
+      <view id="early-symptoms" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-yellow">
+            <text class="icon">🔍</text>
+          </view>
+          <text class="section-title">三、留意早期症状</text>
+        </view>
+        <view class="section-content">
+          <text class="content-text">
+            食管癌早期症状往往不典型，容易被忽视，但及时关注这些症状，对于早期诊断和治疗至关重要。常见的早期症状包括：
+          </text>
+          
+          <view class="symptom-card">
+            <text class="symptom-title">1. 吞咽异常</text>
+            <text class="symptom-text">
+              吞咽食物时，可能会出现轻度梗阻感，感觉食物在食管内通过缓慢，或者有短暂的滞留感，这种症状可能会时有时无，容易被误认为是食物卡喉或消化不良。比如在吃馒头、面包等较干食物时，梗阻感可能更为明显，但喝水或吃流食时症状可能减轻或消失。随着病情进展，吞咽困难会逐渐加重，从进食固体食物困难发展到进食半流食、流食也困难。
+            </text>
+          </view>
+          
+          <view class="symptom-card">
+            <text class="symptom-title">2. 胸骨后不适</text>
+            <text class="symptom-text">
+              常表现为胸骨后烧灼感或疼痛，疼痛性质多样，可为针刺样、牵拉样或隐痛。这种疼痛在进食时可能会加重，尤其是吃粗、热或刺激性食物时，疼痛会更加明显。部分患者还可能感觉胸骨后有异物感，仿佛有东西贴附在食管壁上，但又吞咽不下。
+            </text>
+          </view>
+          
+          <view class="symptom-card">
+            <text class="symptom-title">3. 其他症状</text>
+            <text class="symptom-text">
+              下段食管癌还可能引起剑突下或上腹部不适、呃逆、嗳气等症状。这些症状可能与食管癌导致的食管蠕动异常或消化功能紊乱有关。如果出现上述症状，且持续不缓解或逐渐加重，应及时就医进行相关检查，如食管钡餐造影、内镜检查等，以便早期发现食管癌。
+            </text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 参考文献 -->
+      <view id="references" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-gray">
+            <text class="icon">📚</text>
+          </view>
+          <text class="section-title">参考文献</text>
+        </view>
+        <view class="section-content">
+          <view class="reference-item">[1] 张可昕,柴静,沈兴蓉,等.食管癌发病影响因素分析及风险预测模型的构建[J].山东第一医科大学(山东省医学科学院)学报,2022,43(01):56-62.</view>
+          <view class="reference-item">[2] 赫捷,陈万青,李兆申,等.中国食管癌筛查与早诊早治指南（2022，北京）[J].中国肿瘤,2022,31(06):401-436.</view>
+        </view>
+      </view>
+
+      <!-- 底部留白 -->
+      <view class="bottom-space"></view>
+    </view>
+  </scroll-view>
+
+</view>

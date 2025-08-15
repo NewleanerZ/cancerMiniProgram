@@ -1,0 +1,93 @@
+/* 页面整体样式 */
+.page-container {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding: 40rpx 0 60rpx;
+  /* 轻微背景纹理 */
+  background-image: 
+    radial-gradient(rgba(51, 122, 183, 0.03) 1px, transparent 1px);
+  background-size: 30rpx 30rpx;
+}
+
+/* 页面标题 */
+.page-title {
+  text-align: center;
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 60rpx;
+  padding: 0 30rpx;
+}
+
+/* 导航按钮样式 */
+.nav-btn {
+  display: block;
+  width: 84%;
+  margin: 30rpx auto;
+  padding: 35rpx 20rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  /* 渐变背景 */
+  background: linear-gradient(135deg, #337ab7 0%, #286090 100%);
+  /* 阴影效果 */
+  box-shadow: 0 8rpx 20rpx rgba(51, 122, 183, 0.25);
+  /* 过渡动画 */
+  transition: all 0.3s ease;
+  /* 内部布局 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 按钮图标 */
+.nav-btn::before {
+  content: "🔍";
+  margin-right: 15rpx;
+  font-size: 36rpx;
+}
+
+/* 按钮hover效果 */
+.nav-btn:hover {
+  transform: translateY(-5rpx);
+  box-shadow: 0 12rpx 25rpx rgba(51, 122, 183, 0.3);
+}
+
+/* 按钮点击效果 */
+.nav-btn:active {
+  transform: translateY(-2rpx);
+  box-shadow: 0 6rpx 15rpx rgba(51, 122, 183, 0.2);
+}
+
+/* 每个按钮的独特颜色 */
+.nav-btn:nth-child(1) {
+  background: linear-gradient(135deg, #337ab7 0%, #286090 100%);
+}
+
+.nav-btn:nth-child(2) {
+  background: linear-gradient(135deg, #5cb85c 0%, #449d44 100%);
+}
+
+.nav-btn:nth-child(3) {
+  background: linear-gradient(135deg, #f0ad4e 0%, #ec971f 100%);
+}
+
+/* 装饰元素 */
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60rpx;
+  height: 60rpx;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' opacity='0.7'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
+  background-size: 24rpx 24rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+}
+
+
+    

@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "食管癌健康指导",
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#eee",
+    "navigationBarBackgroundColor": "#2CC2C3",
+    
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false,
+  "usingComponents": {}
+}

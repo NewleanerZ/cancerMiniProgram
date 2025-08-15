@@ -1,0 +1,404 @@
+<!--pages/healthGuide/colorectumGuide/colorectumGuide.wxml-->
+<!--pages/healthGuide/colonCancerGuide/colonCancerGuide.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="navbar">
+    <text class="navbar-title">结肠癌健康指导</text>
+    <view class="navbar-menu" bindtap="toggleMenu">
+      <image src="" mode="widthFix" class="menu-icon"></image>
+    </view>
+  </view>
+
+  
+
+  <!-- 主内容滚动区 -->
+  <scroll-view 
+    class="main-scroll" 
+    scroll-y 
+    bindscroll="onScroll"
+    scroll-with-animation
+    id="mainScroll"
+  >
+    <view class="content">
+      <!-- 概述部分 -->
+      <view id="intro" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-blue">
+            <text class="icon">💡</text>
+          </view>
+          <text class="section-title">结肠癌概述</text>
+        </view>
+        <view class="section-content">
+          <text class="content-text">
+            结肠癌是一种常见的消化道恶性肿瘤，起源于结肠黏膜上皮细胞，其发病率在全球范围内呈上升趋势。作为结直肠癌的主要组成部分，结肠癌严重威胁着人们的健康和生命。了解结肠癌的相关知识，做好预防和筛查工作，对于降低发病风险和提高治愈率具有重要意义。
+          </text>
+          <view class="tip-box">
+            <text class="tip-icon">⚠️</text>
+            <text class="tip-text">结肠癌的发生发展是一个漫长的过程，早期预防、规范筛查和及时干预能有效降低发病风险和死亡率，保护您和家人的健康。</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 规避危险因素 -->
+      <view id="risk-factors" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-red">
+            <text class="icon">🚫</text>
+          </view>
+          <text class="section-title">一、规避危险因素</text>
+        </view>
+        
+        <!-- 关注遗传与疾病因素 -->
+        <view class="subsection">
+          <text class="subsection-title">（一）关注遗传与疾病因素</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">家族遗传</text>
+                <text class="item-text">
+                  结肠癌有一定遗传倾向，若一级亲属（父母、兄弟姐妹或子女）患过结肠癌，个体发病风险是普通人群的1.76倍。这类人群需更早重视筛查，建议40岁起定期做结肠镜检查，以便早期发现病变。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">炎症性肠病</text>
+                <text class="item-text">
+                  （如溃疡性结肠炎、克罗恩病）患者发病风险显著升高，其中溃疡性结肠炎患者风险是普通人群的2.4倍。这类患者要严格遵医嘱治疗，长期用药控制炎症（如美沙拉嗪），并每1-2年复查肠镜，监测肠道黏膜变化。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">糖尿病</text>
+                <text class="item-text">
+                  糖尿病患者体内长期的高血糖状态会影响身体的代谢功能，导致肠道黏膜的血液供应和免疫功能受到影响，进而增加结肠癌的发病风险。研究表明，糖尿病患者结肠癌发病风险增加41%，即使是糖尿病前期，患病风险也会有所上升。
+                </text>
+                <text class="item-text">
+                  糖尿病患者应积极控制血糖，通过合理饮食、适量运动以及规范用药，将血糖维持在正常水平。例如，遵循糖尿病饮食原则，控制碳水化合物的摄入量，增加膳食纤维的摄入；每周进行至少150分钟的中等强度有氧运动，如快走、慢跑等；按照医生的嘱咐按时服用降糖药物或注射胰岛素，并定期监测血糖。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 调整不良饮食习惯 -->
+        <view class="subsection">
+          <text class="subsection-title">（二）调整不良饮食习惯</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">控制红肉和加工肉类摄入</text>
+                <text class="item-text">
+                  红肉（如牛肉、猪肉、羊肉等）和加工肉类（如香肠、火腿、腊肉等）是结肠癌的重要危险因素。加工肉类在制作过程中，往往会添加亚硝酸盐等防腐剂，这些物质在体内可能转化为致癌物亚硝胺。同时，红肉在高温烹饪（如烧烤、油炸）时，会产生杂环胺和多环芳烃等致癌物质。
+                </text>
+                <text class="item-text">
+                  研究显示，加工肉类每日摄入每增加50g，结肠癌风险增加16%；红肉每日增加100g，风险增加12%。建议减少红肉和加工肉类的食用量，每周红肉摄入量不超过500g，尽量选择新鲜的禽肉、鱼肉等白肉作为蛋白质来源。例如，将每周吃几次的红烧肉、香肠改为清蒸鱼、白灼虾等。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">避免高盐、烟熏、油炸食品</text>
+                <text class="item-text">
+                  高盐饮食会破坏胃黏膜的屏障功能，使得肠道更容易受到致癌物的侵袭。烟熏食品中含有大量的多环芳烃类致癌物，如苯并芘，而油炸食品在高温烹饪过程中也会产生多种有害物质。长期食用这些食物，会对肠道黏膜造成损伤，增加结肠癌的发病风险。
+                </text>
+                <text class="item-text">
+                  像一些地区传统的烟熏腊肉、油炸面窝等食物，应尽量减少食用频率。日常生活中，选择清淡、低盐的烹饪方式，如清蒸、煮、炖等，减少食物在加工过程中致癌物的产生。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">规律饮食</text>
+                <text class="item-text">
+                  不吃早餐、饮食不规律、暴饮暴食等不良饮食习惯，会打乱肠道正常的消化和蠕动节律，影响肠道的正常功能。长期如此，肠道黏膜在不稳定的环境下，容易出现病变。比如，有些人因工作繁忙，经常错过早餐，午餐和晚餐又吃得过多、过快，这种饮食习惯对肠道健康极为不利。
+                </text>
+                <text class="item-text">
+                  应养成定时定量进餐的好习惯，每天尽量保持固定的用餐时间和食量，避免过度饥饿或过度饱食。同时，细嚼慢咽，有助于食物的消化吸收，减轻肠道负担。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 纠正不良生活方式 -->
+        <view class="subsection">
+          <text class="subsection-title">（三）纠正不良生活方式</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">控制体重</text>
+                <text class="item-text">
+                  肥胖会升高患病风险，BMI每增加5kg/m²，结肠癌风险增加7%；腰围每增加10cm，风险增加2%。建议通过合理饮食（减少高热量食物，增加膳食纤维）和运动（每周至少150分钟中等强度有氧运动）控制体重，保持BMI在18.5-23.9kg/m²。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">戒烟</text>
+                <text class="item-text">
+                  吸烟与结肠癌的发生密切相关，吸烟者结肠癌发病风险是不吸烟者的1.18倍，且每日吸烟量每增加10支，风险升高7.8%。香烟燃烧产生的焦油、尼古丁等多种有害物质，会随着烟雾进入人体，通过血液循环到达肠道，对肠道黏膜产生直接的刺激和损伤，长期积累会增加结肠癌的发病几率。
+                </text>
+                <text class="item-text">
+                  吸烟者应尽快戒烟，可通过逐渐减少吸烟量、使用戒烟辅助工具（如戒烟口香糖、戒烟贴）等方式帮助戒烟，同时寻求家人和朋友的支持与监督。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">限制饮酒</text>
+                <text class="item-text">
+                  大量饮酒会损害肠道黏膜，影响肠道的免疫功能和正常代谢。每日乙醇摄入≥50g者，结肠癌风险是不饮酒者的1.20倍，每周饮酒量增加280g，风险进一步升高。
+                </text>
+                <text class="item-text">
+                  为了肠道健康，应限制饮酒量，男性每日饮酒的乙醇量不超过25g，女性不超过15g。如果难以完全戒酒，可选择适量饮用红酒，因为红酒中含有一些有益的抗氧化物质，如白藜芦醇，但也要注意控制饮用量。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 强化保护因素 -->
+      <view id="protective-factors" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-green">
+            <text class="icon">✅</text>
+          </view>
+          <text class="section-title">二、强化保护因素</text>
+        </view>
+        
+        <!-- 优化饮食结构 -->
+        <view class="subsection">
+          <text class="subsection-title">（一）优化饮食结构</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">增加膳食纤维摄入</text>
+                <text class="item-text">
+                  膳食纤维具有促进肠道蠕动、增加粪便体积、缩短粪便在肠道内停留时间的作用，能够减少有害物质与肠道黏膜的接触时间，降低结肠癌的发病风险。每日膳食纤维增加10g，结肠癌风险降低9%。
+                </text>
+                <text class="item-text">
+                  全谷物、豆类、蔬菜（如芹菜、菠菜、西兰花等）、水果（如苹果、香蕉、梨等）都是膳食纤维的良好来源。建议每天摄入蔬菜300-500g，水果200-350g，全谷物占主食的一半左右。例如，早餐可以选择燕麦粥、全麦面包；午餐和晚餐搭配多种蔬菜，如清炒芹菜、凉拌菠菜等；每天吃一个苹果或香蕉作为加餐。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">保证乳制品摄入</text>
+                <text class="item-text">
+                  乳制品富含钙、维生素D等营养成分，这些物质可能通过调节细胞的生长和分化，抑制癌细胞的增殖。研究发现，乳制品可减少患病风险，每日摄入400g，风险降低13%，发酵乳制品（如酸奶）效果更显著。建议每天喝250ml牛奶或吃100-150g酸奶，优先选择低脂或脱脂产品。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">均衡饮食</text>
+                <text class="item-text">
+                  保证谷类、薯类、肉类、奶类、豆制品、蔬菜、水果等各类食物的合理摄入，为身体提供全面的营养。谷类和薯类是碳水化合物的主要来源，能为身体提供能量；肉类、奶类、豆制品富含优质蛋白质，是身体细胞修复和生长的重要原料；蔬菜和水果富含维生素、矿物质和膳食纤维，对维持身体正常生理功能和肠道健康至关重要。
+                </text>
+                <text class="item-text">
+                  例如，每餐保证有谷类或薯类（如米饭、馒头、红薯等）、蛋白质类食物（如瘦肉、鱼类、豆类等）以及蔬菜；每天摄入不同种类的水果。同时，注意食物的多样性，避免长期单一饮食。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 坚持运动锻炼 -->
+        <view class="subsection">
+          <text class="subsection-title">（二）坚持运动锻炼</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">适度体育锻炼</text>
+                <text class="item-text">
+                  休闲时间体力活动水平前10%的人群，结肠癌风险降低16%。运动可以促进肠道蠕动，减少粪便在肠道内的停留时间，降低有害物质对肠道黏膜的刺激。运动还能增强心肺功能，提高机体的代谢水平和免疫力，有助于身体抵御癌细胞的侵袭。
+                </text>
+                <text class="item-text">
+                  建议每周进行至少150分钟的中等强度有氧运动，如快走（速度一般在每分钟100-120步左右）、慢跑（速度根据个人情况而定，一般能持续运动且仍可进行简单对话为宜）、游泳、骑自行车等。也可适当进行一些力量训练，如使用哑铃进行简单的手臂力量练习，或进行平板支撑等锻炼核心肌群的运动，每周2-3次。运动时要注意循序渐进，避免过度劳累，运动前做好热身准备，运动后进行拉伸放松。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">养成运动习惯</text>
+                <text class="item-text">
+                  将运动融入日常生活中，形成长期的运动习惯。可以选择自己喜欢的运动方式，这样更容易坚持。比如，喜欢户外活动的人可以选择慢跑、骑自行车；喜欢室内运动的人可以选择瑜伽、健身操等。也可以参加一些运动俱乐部或与朋友一起运动，增加运动的趣味性和动力。
+                </text>
+                <text class="item-text">
+                  例如，加入一个慢跑小组，每周固定时间一起跑步，互相鼓励和监督；或者报名参加瑜伽课程，在专业教练的指导下进行锻炼。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 合理用药干预 -->
+        <view class="subsection">
+          <text class="subsection-title">（三）合理用药干预</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">阿司匹林的使用</text>
+                <text class="item-text">
+                  规律服用阿司匹林可降低27%的结肠癌风险。阿司匹林能够抑制体内的炎症反应，减少癌细胞的生长和转移。然而，阿司匹林也有一定的副作用，如可能增加胃肠道出血的风险。因此，是否使用阿司匹林预防结肠癌，需要在医生的严格评估和指导下进行。
+                </text>
+                <text class="item-text">
+                  医生会综合考虑个体的年龄、健康状况、心血管疾病风险以及胃肠道状况等因素，权衡利弊后给出建议。例如，对于年龄在50-69岁、心血管疾病风险较高且胃肠道出血风险较低的人群，在医生评估后，可能会建议小剂量服用阿司匹林进行结肠癌的一级预防；但对于本身就有胃肠道溃疡、出血倾向等疾病的人群，则不适合使用。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 重视筛查工作 -->
+      <view id="screening" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-purple">
+            <text class="icon">🔬</text>
+          </view>
+          <text class="section-title">三、重视筛查工作</text>
+        </view>
+        
+        <!-- 明确高风险人群 -->
+        <view class="subsection">
+          <text class="subsection-title">（一）明确高风险人群</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">年龄因素</text>
+                <text class="item-text">
+                  年龄≥45岁的人群，随着年龄的增长，身体各器官功能逐渐衰退，肠道黏膜的修复和更新能力减弱，对致癌物的易感性增加，患结肠癌的风险相应提高。因此，45岁以上的人群应将结肠癌筛查纳入常规健康检查项目。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">家族病史</text>
+                <text class="item-text">
+                  一级亲属有结肠癌病史的人群，由于遗传因素的影响，携带相关致癌基因突变的概率较高，发病风险显著增加。这类人群应从相对年轻的年龄（如40岁）开始进行结肠癌筛查，且筛查频率可能需要更高，如每1-2年进行一次结肠镜检查。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">肠道疾病史</text>
+                <text class="item-text">
+                  本人有肠道腺瘤、结肠癌病史的人群，以及患炎症性肠病（病程≥8年）的患者，由于肠道已经存在病变或长期处于炎症状态，发生结肠癌的风险大大增加。肠道腺瘤患者即使已经切除腺瘤，仍需定期复查，因为腺瘤有复发和癌变的可能；炎症性肠病患者需要密切监测肠道黏膜的变化，及时发现可能出现的癌变迹象。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">4.</text>
+              <view class="item-content">
+                <text class="item-title">其他因素</text>
+                <text class="item-text">
+                  粪便潜血试验阳性，提示可能存在肠道出血，而肠道出血可能是结肠癌的早期表现之一，需要进一步检查明确原因。存在肥胖、糖尿病、长期吸烟/大量饮酒等2项及以上危险因素的人群，由于这些不良因素的协同作用，患结肠癌的风险也会明显升高。例如，肥胖合并糖尿病的患者，其结肠癌发病风险可能高于单纯肥胖或糖尿病患者。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 规范筛查流程 -->
+        <view class="subsection">
+          <text class="subsection-title">（二）规范筛查流程</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">筛查起始年龄</text>
+                <text class="item-text">
+                  一般风险人群，40岁起应接受结肠癌风险评估，根据评估结果决定是否需要进行进一步的筛查。中低风险者，50-75岁是结肠癌筛查的重要年龄段，建议在此期间进行定期筛查。高风险人群，如前文所述具有家族病史、肠道疾病史等因素的人群，应从40岁起甚至更早开始进行筛查。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">筛查方法</text>
+                <text class="item-text">
+                  结肠镜：金标准，可直接观察肠道并取组织活检，每5-10年一次，能降低56%发病风险。
+                </text>
+                <text class="item-text">
+                  免疫法粪便潜血试验（FIT）：每年一次，操作简便，灵敏度0.83（95% CI:0.76~0.88），阳性者需进一步做结肠镜。
+                </text>
+                <text class="item-text">
+                  多靶点粪便FIT-DNA检测：每3年一次，对结肠癌灵敏度92.3%，费用较高。
+                </text>
+                <text class="item-text">
+                  结肠CT成像：每5年一次，适合不能耐受结肠镜者，对微小病变检测能力较弱，有辐射。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">特殊人群筛查</text>
+                <text class="item-text">
+                  对于遗传性结肠癌高危人群，如林奇综合征患者，由于其携带特定的基因突变，患结肠癌的风险极高。MLH1/MSH2突变者，应在20-25岁起每1-2年进行一次结肠镜检查，以便早期发现病变并及时治疗。
+                </text>
+                <text class="item-text">
+                  家族性腺瘤性息肉病患者，由于肠道内会大量生长腺瘤性息肉，癌变风险极大，应在10-11岁起每年进行一次结肠镜检查，密切监测息肉的生长情况，必要时及时切除息肉。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 参考文献 -->
+      <view id="references" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-gray">
+            <text class="icon">📚</text>
+          </view>
+          <text class="section-title">参考文献</text>
+        </view>
+        <view class="section-content">
+          <view class="reference-item">[1]中国疾病预防控制中心慢性非传染性疾病预防控制中心肿瘤防控专家组,吴静,王宝华,等.中国社区居民结直肠癌筛查专家共识[J].环境卫生学杂志,2024,14(04):273-285.DOI:10.13421/j.cnki.hjwsxzz.2024.04.001.</view>
+          <view class="reference-item">[2]陈万青,李霓,兰平,等.中国结直肠癌筛查与早诊早治指南（2020，北京）[J].中国肿瘤,2021,30(01):1-28.</view>
+        </view>
+      </view>
+
+      <!-- 底部留白 -->
+      <view class="bottom-space"></view>
+    </view>
+  </scroll-view>
+
+</view>

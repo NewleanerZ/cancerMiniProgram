@@ -1,0 +1,102 @@
+/* pages/result/colorectumResult/colorectumResult.wxss */
+/* pages/result/commonResult/commonResult.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 0 30rpx;
+}
+
+.result-header {
+  padding: 60rpx 0 30rpx;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.result-card {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  padding: 50rpx 40rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.risk-level-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.risk-level {
+  font-size: 40rpx;
+  font-weight: bold;
+  padding: 15rpx 40rpx;
+  border-radius: 10rpx;
+}
+
+.high-risk {
+  color: #e63946;
+  background-color: #fff0f0;
+  border: 1px solid #ffccd5;
+}
+
+.low-risk {
+  color: #2a9d8f;
+  background-color: #eafaf1;
+  border: 1px solid #c8e6c9;
+}
+
+.suggestion-scroll {
+  flex: 1;
+  width: 90%;
+  padding: 30rpx;
+  background-color: #fafafa;
+  border-radius: 12rpx;
+  border: 1px solid #f0f0f0;
+}
+
+.suggestion-content {
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.8;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0 60rpx;
+  gap: 30rpx;
+}
+
+.nav-btn {
+  width: 50%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-btn {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.guide-btn {
+  background-color: #1677ff;
+  color: #fff;
+  border: none;
+}
+    

@@ -1,0 +1,44 @@
+<!--pages/result/esophagusResult/esophagusResult.wxml-->
+<!-- pages/screeningResult/screeningResult.wxml -->
+<view class="container">
+  <!-- 结果显示区域 -->
+  <view class="result-container">
+    <view class="result-title">筛查结果</view>
+    
+    <!-- 结果内容（根据风险等级动态显示） -->
+    <view class="result-content">
+      <text class="risk-level {{result === 'high' ? 'high-risk' : 'low-risk'}}">
+        {{result === 'high' ? '高风险人群' : '非高风险人群'}}
+      </text>
+      
+      <!-- 建议内容（带滚动） -->
+      <scroll-view class="suggestion-scroll" scroll-y="true">
+        <view class="suggestion-content">
+          <block wx:if="{{result === 'high'}}">
+            <text>请您尽快联系专业医疗机构，预约内镜检查，具体检查方法和操作流程可参考国家卫生健康委最新发布的食管癌诊疗指南。</text>
+            <text>食管癌高风险人群原则上每 5 年进行 1 次内镜检查，有下列病变者建议缩短筛查间隔：</text>
+            <view class="suggestion-list">
+              <text>1. 低级别上皮内瘤变者每1~3年进行1次内镜检查。</text>
+              <text>2. 低级别上皮内瘤变合并内镜下高危因素或病变长径>1cm者每年接受1次内镜检查，持续5年。</text>
+              <text>3. Barrett食管患者伴低级别上皮内瘤变，每6~12个月进行1次内镜检查；Barrett食管患者无异型增生，每3~5年进行1次内镜检查。</text>
+            </view>
+          </block>
+          
+          <block wx:else>
+            <text>保持良好的饮食习惯，减少热烫饮食、高盐饮食、腌制食品的摄入，戒烟限酒，积极治疗相关基础疾病。定期进行健康体检，如有不适及时就医。</text>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  
+  <!-- 底部导航按钮 -->
+  <view class="nav-buttons">
+    <button class="nav-btn home-btn" bind:tap="navigateToHome">
+        返回主页
+    </button>
+    <button class="nav-btn advice-btn" bind:tap="navigateToGuidance">
+        更多建议
+    </button>
+  </view>
+</view>

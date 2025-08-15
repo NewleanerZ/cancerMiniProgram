@@ -1,0 +1,40 @@
+<!--pages/result/colorectumResult/colorectumResult.wxml-->
+<!-- pages/result/commonResult/commonResult.wxml -->
+<view class="container">
+  <!-- 结果标题区域 -->
+  <view class="result-header">
+    <text class="page-title">筛查结果</text>
+  </view>
+
+  <!-- 核心结果展示区 -->
+  <view class="result-card">
+    <!-- 风险等级显示 -->
+    <view class="risk-level-container">
+      <text class="risk-level {{result === 'high' ? 'high-risk' : 'low-risk'}}">
+        {{result === 'high' ? '高风险人群' : '非高风险人群'}}
+      </text>
+    </view>
+
+    <!-- 建议内容区域（带滚动） -->
+    <scroll-view class="suggestion-scroll" scroll-y>
+      <view class="suggestion-content">
+        <!-- 可根据实际需求添加对应建议内容 -->
+        <text wx:if="{{result === 'high'}}">
+          您属于高风险人群，建议尽快咨询专业医生，进行进一步的检查和评估。
+          请遵循医生指导，定期进行相关筛查，保持健康的生活方式，降低患病风险。
+        </text>
+        <text wx:else>
+          您目前不属于高风险人群。建议保持良好的生活习惯，合理饮食，规律作息，
+          坚持适度运动，定期进行健康体检，如有不适请及时就医。
+        </text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 底部导航按钮 -->
+  <view class="nav-buttons">
+    <button class="nav-btn home-btn" bindtap="navigateToHome">返回主页</button>
+    <button class="nav-btn guide-btn" bindtap="navigateToGuidance">更多建议</button>
+  </view>
+</view>
+    

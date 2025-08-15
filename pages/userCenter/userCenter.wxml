@@ -1,0 +1,50 @@
+<view class="page-container">
+  <!-- 固定在顶部的头像和昵称区域 -->
+  <view class="fixed-header">
+    <view class="head-box" wx:if="{{openid}}">
+      <!-- 融合背景的头像选择按钮 -->
+      <button 
+        open-type="chooseAvatar" 
+        class="avatar-btn" 
+        bindchooseavatar="chooseAvatar"
+      >
+        <image class="head-img" src="{{login.avatar}}" mode="widthFix"></image>
+      </button>
+    </view>
+  </view>
+
+
+  <!-- 可滚动内容区域 -->
+  <view class="scroll-content">
+    <!-- 历史记录模块 -->
+    <view class="section">
+      <view class="section-title">历史记录</view>
+      <view 
+        class="card-item" 
+        wx:for="{{historyRecord}}" 
+        wx:key="index" 
+        bindtap="gotoResult" 
+        data-item="{{item}}"
+      >
+        <!-- 左侧图标 -->
+        <image class="card-icon" src="/images/cancer.png"></image>
+        <!-- 内容区 -->
+        <view class="card-content">
+          <view class="card-title">
+            {{ 
+              item.screenTable.cancerType === 'esophagus' ? '食管癌' : 
+              item.screenTable.cancerType === 'stomach' ? '胃癌' : 
+              item.screenTable.cancerType === 'colorectum' ? '结直肠癌' : 
+              '未知癌种' 
+            }} 筛查记录
+          </view>
+          <view class="card-desc">
+            风险等级：{{item.riskLevel === 'high' ? '高风险' : '低风险'}}
+          </view>
+        </view>
+        <!-- 右侧箭头 -->
+        <image class="arrow" src="/images/right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,259 @@
+/* pages/forms/esophagus/esophahus.wxss */
+.container {
+  padding: 20rpx 30rpx;
+  background-color: #f7f9fc;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 章节标题样式 */
+.section-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #2c6ecb;
+  margin: 40rpx 0 25rpx;
+  padding-left: 15rpx;
+  border-left: 6rpx solid #337ab7;
+  line-height: 1.4;
+}
+
+/* 问题项容器 */
+.question-item {
+  background-color: #fff;
+  padding: 35rpx 30rpx;
+  margin-bottom: 25rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.question-item:hover {
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 问题文本样式 */
+.question {
+  font-size: 32rpx;
+  margin-bottom: 25rpx;
+  color: #333;
+  line-height: 1.6;
+  padding-right: 10rpx;
+}
+
+/* 选项容器 */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 22rpx;
+}
+
+/* 单选选项样式 */
+.radio {
+  display: flex;
+  align-items: center;
+  font-size: 29rpx;
+  color: #555;
+  padding: 12rpx 10rpx;
+  border-radius: 8rpx;
+  transition: background-color 0.2s ease;
+  flex-wrap: wrap;
+}
+
+.radio:hover {
+  background-color: #f5f8ff;
+}
+
+.radio radio {
+  margin-right: 18rpx;
+  transform: scale(0.9); /* 调整单选框大小 */
+}
+
+/* 输入框样式优化 */
+.inline-input,
+.small-input,
+.normal-input {
+  border: 1.5rpx solid #d0d7e3;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  padding: 12rpx 15rpx;
+  transition: all 0.2s ease;
+  background-color: #fff;
+}
+
+.inline-input:focus,
+.small-input:focus,
+.normal-input:focus {
+  border-color: #337ab7;
+  box-shadow: 0 0 0 3rpx rgba(51, 122, 183, 0.1);
+  outline: none;
+}
+
+.inline-input {
+  flex: 1;
+  min-width: 300rpx;
+  margin-left: 10rpx;
+}
+
+.small-input {
+  width: 110rpx;
+  margin: 0 8rpx;
+  text-align: center;
+}
+
+.normal-input {
+  flex: 1;
+  min-height: 70rpx;
+}
+
+/* 条件字段容器 */
+.condition-fields {
+  margin-top: 20rpx;
+  margin-left: 55rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  padding-left: 10rpx;
+  border-left: 2rpx dashed #e0e6ed;
+}
+
+.field-item {
+  display: flex;
+  align-items: center;
+  font-size: 29rpx;
+  color: #555;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.field-label {
+  margin-right: 5rpx;
+  white-space: nowrap;
+  color: #444;
+}
+
+/* 提交按钮样式（核心：文字居中） */
+.submit-btn {
+  margin: 50rpx 0 30rpx;
+  width: 100%;
+  height: 90rpx;
+  /* 确保文字水平+垂直居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1; /* 重置行高 */
+  background: linear-gradient(135deg, #337ab7 0%, #286090 100%);
+  color: white;
+  font-size: 34rpx;
+  font-weight: 500;
+  border-radius: 12rpx;
+  border: none;
+  box-shadow: 0 6rpx 16rpx rgba(51, 122, 183, 0.2);
+  transition: all 0.2s ease;
+}
+
+.submit-btn:not([disabled]):hover {
+  background: linear-gradient(135deg, #2d6bc7 0%, #23548a 100%);
+  box-shadow: 0 8rpx 20rpx rgba(51, 122, 183, 0.25);
+  transform: translateY(-2rpx);
+}
+
+.submit-btn:not([disabled]):active {
+  transform: translateY(0);
+  box-shadow: 0 4rpx 12rpx rgba(51, 122, 183, 0.2);
+}
+
+/* 对话框样式优化（保留功能并美化） */
+.dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.dialog-container {
+  width: 85%;
+  max-width: 600rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 15rpx 40rpx rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialog-title {
+  padding: 30rpx;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.high-risk {
+  color: #e63946;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.low-risk {
+  color: #43aa8b;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.suggestion-container {
+  flex: 1;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.suggestion-scroll {
+  height: 100%;
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: #333;
+  padding: 5rpx;
+}
+
+.dialog-buttons {
+  display: flex;
+  border-top: 1px solid #f0f0f0;
+}
+
+.dialog-btn {
+  flex: 1;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  font-size: 32rpx;
+  background-color: transparent;
+  color: #1677ff;
+}
+
+.dialog-btn::after {
+  border: none;
+}
+
+.dialog-btn:first-child {
+  border-right: 1px solid #f0f0f0;
+}
+
+.dialog-btn:active {
+  background-color: #f5f5f5;
+}
+  

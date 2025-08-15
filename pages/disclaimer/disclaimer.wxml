@@ -1,0 +1,62 @@
+<!--pages/disclaimer.wxml-->
+<view class="container">
+  <view class="title">用户隐私与数据保护声明</view>
+  <scroll-view class="content" scroll-y>
+    <text class="text-paragraph">尊敬的用户：</text>
+    
+    <text class="text-paragraph">
+      欢迎使用【小程序名称】！在使用之前，请您仔细阅读本《隐私与数据保护声明》（以下简称“声明”）。本声明详细说明了我们如何收集、使用、存储和保护您的个人信息，以及您享有的相关权利。继续使用即表示您已充分理解并同意本声明的全部内容。
+    </text>
+
+    <text class="text-heading">一、我们如何收集和使用您的信息</text>
+    
+    <text class="text-item">1. 基本信息：为完成风险评估，我们会收集您的年龄、性别等基本信息。这些信息仅用于评估您患消化道癌的风险，帮助生成更精准的筛查建议。</text>
+    
+    <text class="text-item">2. 健康信息：您提供的消化道相关症状（如便血、腹痛、反酸等）、既往病史（包括胃肠疾病史、手术史等）、家族癌症史等健康信息，是进行准确风险评估的关键依据。我们承诺，这些信息仅用于消化道癌早期筛查的专业目的，不会挪作他用。</text>
+
+    <text class="text-heading">二、我们如何使用这些信息</text>
+    
+    <text class="text-item">1. 为您提供核心服务功能</text>
+    <text class="text-item">2. 提升和优化服务质量</text>
+    <text class="text-item">3. 保障账号和交易安全</text>
+    <text class="text-item">4. 遵守法律法规要求</text>
+
+    <text class="text-heading">三、信息的使用原则</text>
+    
+    <text class="text-item">1. 目的明确：我们收集的所有信息，均围绕消化道癌早期筛查展开，旨在为您提供更优质、更具针对性的健康服务。未经您明确同意，不会将您的信息用于其他任何目的。</text>
+    
+    <text class="text-item">2. 最少够用：仅收集与消化道癌早期筛查直接相关的必要信息，避免过度收集。对于能通过其他方式获取或非必要的信息，我们坚决不收集，从源头保障您的隐私。</text>
+    
+    <text class="text-item">3. 用户授权：在收集敏感信息（如家族癌症史）或超出基本功能所需信息时，会提前向您说明用途，并征得您的明确同意。您可随时通过小程序的隐私设置，撤回之前给予的授权。</text>
+
+    <text class="text-heading">四、我们如何保护您的信息</text>
+    
+    <text class="text-item">1. 采用SSL加密技术传输数据</text>
+    <text class="text-item">2. 严格控制内部人员访问权限</text>
+    <text class="text-item">3. 定期进行安全风险评估</text>
+    <text class="text-item">4. 数据存储于中国大陆境内服务器</text>
+
+    <text class="text-heading">五、您的权利</text>
+    
+    <text class="text-item">1. 查询、更正个人信息</text>
+    <text class="text-item">2. 删除个人信息</text>
+    <text class="text-item">3. 撤回授权</text>
+    <text class="text-item">4. 注销账号</text>
+
+    <text class="text-heading">六、未成年人保护</text>
+    
+    <text class="text-paragraph">
+      若您未满14周岁，请在监护人指导下使用本服务。
+    </text>
+
+    <text class="text-heading">七、联系我们</text>
+    
+    <text class="text-paragraph">
+      如有任何疑问，请联系客服邮箱：【***】
+    </text>
+  </scroll-view>
+  <view class="button-group">
+    <button class="button agree" bindtap="onAgree">同意</button>
+    <button class="button refuse" bindtap="onRefuse">拒绝</button>
+  </view>
+</view>

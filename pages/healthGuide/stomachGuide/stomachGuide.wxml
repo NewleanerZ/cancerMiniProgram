@@ -1,0 +1,353 @@
+<!--pages/healthGuide/stomachGuide/stomachGuide.wxml-->
+<!--pages/healthGuide/gastricCancerGuide/gastricCancerGuide.wxml-->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="navbar">
+    <text class="navbar-title">胃癌健康指导</text>
+    <view class="navbar-menu" bindtap="toggleMenu">
+      <image src="" mode="widthFix" class="menu-icon"></image>
+    </view>
+  </view>
+
+  <!-- 主内容滚动区 -->
+  <scroll-view 
+    class="main-scroll" 
+    scroll-y 
+    bindscroll="onScroll"
+    scroll-with-animation
+    id="mainScroll"
+  >
+    <view class="content">
+      <!-- 概述部分 -->
+      <view id="intro" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-blue">
+            <text class="icon">💡</text>
+          </view>
+          <text class="section-title">胃癌概述</text>
+        </view>
+        <view class="section-content">
+          <text class="content-text">
+            胃癌，作为一种常见的消化道恶性肿瘤，严重威胁着人类的健康。在全球范围内，其发病率和死亡率均不容小觑。我国更是胃癌高发国家，每年新发病例和死亡病例数接近全球一半。不过，胃癌并非完全不可预防，通过对相关危险因素的规避和保护因素的强化，能显著降低发病风险。
+          </text>
+          <view class="tip-box">
+            <text class="tip-icon">⚠️</text>
+            <text class="tip-text">早期预防、筛查和干预是降低胃癌发病风险和死亡率的关键，了解相关知识有助于保护您和家人的健康。</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 规避危险因素 -->
+      <view id="risk-factors" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-red">
+            <text class="icon">🚫</text>
+          </view>
+          <text class="section-title">一、规避危险因素</text>
+        </view>
+        
+        <!-- 控制感染因素 -->
+        <view class="subsection">
+          <text class="subsection-title">（一）控制感染因素</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">幽门螺杆菌（Hp）的危害</text>
+                <text class="item-text">
+                  Hp感染堪称胃癌的"头号元凶"，它能长期潜伏在胃内，引发慢性胃炎、胃溃疡等疾病，进而增加胃癌的发病几率。研究表明，Hp感染者胃癌发病风险是非感染者的2.04倍（95%CI:1.69-2.45）。几乎所有Hp感染者都会出现慢性活动性胃炎，部分患者在此基础上可发展为消化性溃疡、胃癌以及胃黏膜相关淋巴样组织（MALT）淋巴瘤等严重病症。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">检测方法选择</text>
+                <text class="item-text">
+                  碳13/碳14尿素呼气试验：这是国际公认的检测Hp的"金标准"之一。其原理是Hp产生尿素酶，可分解标记尿素生成二氧化碳，通过检测呼出气体中标记二氧化碳含量来判断是否感染。该方法操作简便、无创，准确率高（＞95%），适用于大多数人群，尤其是初次检测者。但检测前需停用抗生素和铋剂。
+                </text>
+                <text class="item-text">
+                  粪便抗原检测：通过检测粪便中Hp的抗原成分来判断感染情况。此方法操作简单，无需特殊设备，适合儿童和不适合呼气试验的人群，如孕妇、老年人等。不过，其准确率略低于呼气试验，且受粪便标本保存条件影响。
+                </text>
+                <text class="item-text">
+                  血清学检测：检测血液中Hp抗体，操作较为简便，还可同时检测多种抗体。然而，它无法区分现症感染和既往感染，准确率相对较低，一般仅适用于流行病学调查，不推荐用于现症感染的诊断。
+                </text>
+                <text class="item-text">
+                  胃镜检查：在胃镜检查时取胃黏膜组织进行快速尿素酶试验或病理学检查，不仅能直接观察胃黏膜病变，明确诊断，还可进行活检。但它属于有创检查，患者耐受性较差，费用也较高，通常用于需要明确胃黏膜病变情况的患者，或作为其他检测方法的补充。
+                </text>
+                <text class="item-text">
+                  小贴士：一般首选碳13/碳14尿素呼气试验；特殊人群如儿童、不适合呼气试验者可选择粪便抗原检测；若需明确胃黏膜病变，则选择胃镜检查；不推荐单独使用血清学检测。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 调整不良饮食 -->
+        <view class="subsection">
+          <text class="subsection-title">（二）调整不良饮食</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">高盐饮食危害</text>
+                <text class="item-text">
+                  食盐摄入过多对胃黏膜具有极大的破坏作用。每增加5g/d的食盐摄入量，胃癌发生风险便会增加12%。高盐会破坏胃黏膜的完整性，使胃黏膜更易受到致癌物的攻击。日常饮食中，像酱油、酱料以及各类加工食品中往往含有较高盐分，应注意控制摄入量。例如，一些人喜欢吃很咸的咸菜，长期大量食用，会使胃黏膜长期处于高盐刺激环境中，增加患癌风险。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">腌制、熏烤、煎炸食品及加工肉类的隐患</text>
+                <text class="item-text">
+                  腌制食品：咸菜、泡菜、咸鱼、腊肉等腌制食品中含有大量亚硝酸盐。在胃内，亚硝酸盐可转化为强致癌物亚硝胺，显著增加胃癌风险。综合分析截至2022年全球相关28项观察性研究数据显示，与较少摄入此类食物人群相比，常吃腌制食品人群胃癌发生风险增加2.21倍。
+                </text>
+                <text class="item-text">
+                  熏烤食品：熏鱼、熏肉等在熏制过程中会产生苯并芘等致癌物质。这些物质附着在食物表面，进入人体后会对胃黏膜细胞造成损伤，长期积累可引发胃癌。
+                </text>
+                <text class="item-text">
+                  煎炸食品：高温煎炸的食物，如炸薯条、炸鸡等，不仅含有较多油脂，还可能在高温下产生丙烯酰胺等有害物质，同样对胃健康不利。
+                </text>
+                <text class="item-text">
+                  加工肉类：香肠、火腿、培根等加工肉类，每日摄入每增加50g，胃癌风险增加72%。加工过程中添加的防腐剂、增色剂等，以及肉类在加工过程中可能产生的亚硝胺类物质，都增加了致癌风险。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">纠正不良饮食习惯</text>
+                <text class="item-text">
+                  规律进餐：不吃早餐、饮食不规律、暴饮暴食等习惯都会打乱胃部正常的消化节奏。胃黏膜在这种不稳定的环境下，难以维持正常的修复和更新，增加了胃癌发生的可能性。例如，很多上班族因工作繁忙，经常错过早餐时间，或者午餐、晚餐吃得过饱、过快，长期下来，胃部负担加重，健康受到威胁。建议养成定时定量进餐的习惯，一日三餐合理分配热量，避免过度饥饿或过饱。
+                </text>
+                <text class="item-text">
+                  避免食物过烫：过热的食物（温度＞65℃）会烫伤食管和胃黏膜。反复的热刺激会导致黏膜细胞损伤、增生，久而久之，可能引发癌变。比如有些人喜欢喝滚烫的热茶、热汤，或者刚出锅的食物不晾凉就急忙吃下，这对胃黏膜的伤害极大。进食时应等待食物温度适宜后再食用。
+                </text>
+                <text class="item-text">
+                  避免空腹食用刺激性食物：咖啡、浓茶、酒精等刺激性食物，空腹食用时会直接刺激胃黏膜，导致胃酸分泌过多，损伤胃黏膜屏障。尤其是本身就有胃部不适的人群，更应避免空腹摄入这些食物。如果想喝咖啡或茶，可在饭后适量饮用。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 摒弃不良生活习惯 -->
+        <view class="subsection">
+          <text class="subsection-title">（三）摒弃不良生活习惯</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">吸烟的危害</text>
+                <text class="item-text">
+                  吸烟是胃癌的重要危险因素之一，吸烟者胃癌发病风险是不吸烟者的1.61倍，且吸烟量越大、年限越长，风险越高，每日吸烟≥20支者风险达3.53倍。香烟燃烧产生的焦油、尼古丁等上千种有害化学物质，会随着烟雾进入胃部，对胃黏膜产生直接刺激和损伤，长期积累会大大增加胃癌发病几率。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">饮酒的影响</text>
+                <text class="item-text">
+                  酒精对胃黏膜具有直接的刺激和损害作用，可导致胃黏膜损伤与出血。酒精摄入与胃癌发生密切相关，重度饮酒（≥50g乙醇/d）者胃癌风险是不饮酒者的1.20倍，极重度饮酒（＞72g乙醇/d）风险增加48%。而且，饮酒还可能与其他危险因素协同作用，进一步提高胃癌发病风险。例如，饮酒同时吸烟，或者饮酒者常吃腌制食品等，会使患癌风险大幅上升。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 关注疾病与遗传因素 -->
+        <view class="subsection">
+          <text class="subsection-title">（四）关注疾病与遗传因素</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">癌前疾病风险</text>
+                <text class="item-text">
+                  患有慢性萎缩性胃炎、胃溃疡、胃息肉、术后残胃等癌前疾病的人群，胃癌风险显著升高。以慢性萎缩性胃炎为例，胃黏膜固有腺体减少，其保护能力下降，属于癌前状态。胃黏膜细胞转化为肠上皮细胞的肠上皮化生，以及胃黏膜非浸润性肿瘤性病变的异型增生，均为癌前病变。这些病变若不及时治疗和监测，很容易发展为胃癌。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">遗传因素影响</text>
+                <text class="item-text">
+                  一级亲属（父母、子女、兄弟姐妹）有胃癌病史者，发病风险是普通人群的2.85倍（95%CI:1.83-4.46）。遗传因素在胃癌发病中起着重要作用，家族中若有胃癌患者，其亲属携带相关遗传突变基因的概率较高，患胃癌的风险也相应增加。对于这类人群，更应重视胃癌的预防和筛查。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 强化保护因素 -->
+      <view id="protective-factors" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-green">
+            <text class="icon">✅</text>
+          </view>
+          <text class="section-title">二、强化保护因素</text>
+        </view>
+        
+        <!-- 优化饮食结构 -->
+        <view class="subsection">
+          <text class="subsection-title">（一）优化饮食结构</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-title">蔬果的抗癌作用</text>
+                <text class="item-text">
+                  足量摄入蔬菜和水果对预防胃癌具有显著效果。蔬菜中富含维生素（如维生素C、E等）、矿物质（如锌、硒等）和膳食纤维等营养成分。维生素C具有抗氧化作用，能清除体内自由基，减少细胞的氧化损伤；维生素E可保护细胞膜的完整性，维持细胞的正常功能。锌、硒等矿物质参与人体多种酶的合成，对维持胃黏膜细胞的正常代谢和免疫功能起着重要作用。水果中富含的维生素C、维生素E等抗氧化物质，能清除自由基，预防细胞癌变。研究表明，蔬菜摄入最高者比最低者胃癌风险降低44%，水果降低47%。西兰花、卷心菜、胡萝卜、番茄等新鲜蔬菜，以及苹果、香蕉、橙子、猕猴桃等新鲜水果，都是日常饮食中不错的选择。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">2.</text>
+              <view class="item-content">
+                <text class="item-title">膳食纤维的益处</text>
+                <text class="item-text">
+                  膳食纤维可分为可溶性膳食纤维和不可溶性膳食纤维。它能促进肠道蠕动，减少有害物质在肠道内的停留时间，降低致癌物对胃的间接影响。每日膳食纤维摄入量每增加10g，胃癌风险降低44%。全谷物、豆类、蔬菜的茎和叶等都是膳食纤维的良好来源。例如，燕麦、糙米等全谷物，以及菠菜、芹菜等蔬菜的茎和叶，含有丰富的膳食纤维。
+                </text>
+              </view>
+            </view>
+            
+            <view class="list-item">
+              <text class="item-number">3.</text>
+              <view class="item-content">
+                <text class="item-title">饮食多样化与均衡</text>
+                <text class="item-text">
+                  保证食物多样，摄入谷类、薯类、肉类、奶类、豆制品等各类食物。谷类和薯类为身体提供碳水化合物，是能量的主要来源；肉类、奶类、豆制品富含优质蛋白质，是身体细胞修复和生长的重要原料。适量吃鱼、禽、蛋、瘦肉，可获取丰富的蛋白质、不饱和脂肪酸、维生素和矿物质等营养成分。例如，每周可食用2-3次鱼类，每天保证一杯牛奶或适量豆制品摄入，同时搭配适量的谷类和薯类食物，以维持身体的正常生理功能，增强机体抵抗力，保护胃健康。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 及时根除Hp -->
+        <view class="subsection">
+          <text class="subsection-title">（二）及时根除Hp</text>
+          <view class="content-list">
+            <view class="list-item">
+              <text class="item-number">1.</text>
+              <view class="item-content">
+                <text class="item-text">
+                  对于感染Hp的人群，尤其是存在胃癌家族史、慢性胃病史或不良饮食习惯者，及时进行根除治疗意义重大。根除Hp可有效预防和治疗Hp相关消化不良、消化性溃疡，在较大程度上预防胃癌发生。研究显示，根除Hp可降低胃癌发病风险46%，尤其在癌前病变（萎缩性胃炎、肠化生）患者中，能减少病变进展。例如，在肠化生患者中，16年进展为癌的概率从69%降至44%。
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 规范筛查流程 -->
+      <view id="screening" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-purple">
+            <text class="icon">🔬</text>
+          </view>
+          <text class="section-title">三、规范筛查流程</text>
+        </view>
+        <view class="section-content">
+          <text class="content-text">
+            选择合适筛查方法
+          </text>
+          
+          <view class="screening-method">
+            <text class="method-title">1. 胃镜检查</text>
+            <text class="method-text">
+              普通白光胃镜联合窄带成像放大内镜：这是目前诊断胃癌的金标准，尤其适用于胃萎缩、肠化生或疑似早期胃癌者。它能直接观察胃黏膜的细微病变，提高微小病变的检出率。
+            </text>
+            <text class="method-text">
+              磁控胶囊胃镜：对于不能耐受常规内镜检查的患者，磁控胶囊胃镜是一种较好的选择。患者只需吞服一颗胶囊，通过体外磁场控制胶囊在胃内的运动，对胃部进行全方位拍摄。其灵敏度可达0.87，且患者接受度高。但该方法也有一定局限性，如无法进行活检，对于一些微小病变的观察可能不如普通胃镜清晰。
+            </text>
+          </view>
+          
+          <view class="screening-method">
+            <text class="method-title">2. 不推荐单独使用的筛查方法</text>
+            <text class="method-text">
+              血清胃蛋白酶原（PG）、胃泌素-17（G-17）或MG7-Ag等生物标志物筛查，由于其准确性相对较低，不能单独用于胃癌筛查，一般仅作为辅助筛查手段，结合其他检查方法综合判断。
+            </text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 症状预警 -->
+      <view id="symptoms" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-yellow">
+            <text class="icon">⚠️</text>
+          </view>
+          <text class="section-title">四、关注症状预警</text>
+        </view>
+        <view class="section-content">
+          <text class="content-text">
+            虽然胃癌早期症状往往不典型，但仍需留意一些可能的信号。常见症状包括：
+          </text>
+          
+          <view class="symptom-card">
+            <text class="symptom-title">1. 体重下降</text>
+            <text class="symptom-text">
+              不明原因的体重在短时间内明显下降，可能是胃癌的早期信号之一。这是由于肿瘤消耗身体能量，同时影响消化吸收功能所致。
+            </text>
+          </view>
+          
+          <view class="symptom-card">
+            <text class="symptom-title">2. 腹痛</text>
+            <text class="symptom-text">
+              胃部疼痛或不适感，起初可能是隐痛或胀痛，随着病情进展可能加重或变得有规律。疼痛部位多在中上腹部，有时会被误认为是普通胃病。
+            </text>
+          </view>
+          
+          <view class="symptom-card">
+            <text class="symptom-title">3. 恶心呕吐</text>
+            <text class="symptom-text">
+              常出现恶心感，严重时可能发生呕吐。如果肿瘤位于幽门部，可能会导致幽门梗阻，出现频繁呕吐，呕吐物多为宿食。
+            </text>
+          </view>
+          
+          <view class="symptom-card">
+            <text class="symptom-title">4. 黑便</text>
+            <text class="symptom-text">
+              大便颜色变黑，呈柏油样，可能是胃出血的表现。肿瘤侵犯胃黏膜血管可引起出血，血液经过消化后使大便变黑。
+            </text>
+          </view>
+          
+          <view class="symptom-card">
+            <text class="symptom-title">5. 消化不良和胃部不适</text>
+            <text class="symptom-text">
+              包括胃部隐隐作痛、反酸、嗳气、食欲不振等症状，这些症状与普通胃病相似，容易被忽视。如果这些症状持续存在或反复发作，应及时就医检查。
+            </text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 参考文献 -->
+      <view id="references" class="section">
+        <view class="section-header">
+          <view class="header-icon bg-gray">
+            <text class="icon">📚</text>
+          </view>
+          <text class="section-title">参考文献</text>
+        </view>
+        <view class="section-content">
+          <view class="reference-item">[1] 国家卫生健康委办公厅关于印发胃癌筛查与早诊早治方案（2024年版）</view>
+          <view class="reference-item">[2] 赫捷,陈万青,李兆申,等.中国胃癌筛查与早诊早治指南（2022，北京）[J].中国肿瘤,2022,31(07):488-527.</view>
+        </view>
+      </view>
+
+      <!-- 底部留白 -->
+      <view class="bottom-space"></view>
+    </view>
+  </scroll-view>
+
+</view>

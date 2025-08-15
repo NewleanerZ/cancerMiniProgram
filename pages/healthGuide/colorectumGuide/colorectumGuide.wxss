@@ -1,0 +1,287 @@
+/* pages/healthGuide/colorectumGuide/colorectumGuide.wxss */
+.container {
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding:100rpx 0;
+  }
+  
+  /* 顶部导航栏 */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100rpx;
+    background-color: #ffffff;
+    padding: 0 30rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  
+  .navbar-title {
+    font-size: 36rpx;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .menu-icon {
+    width: 48rpx;
+    height: 48rpx;
+  }
+  
+  /* 导航菜单 */
+  .menu-mask {
+    position: fixed;
+    top: 100rpx;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 101;
+  }
+  
+  .menu-panel {
+    position: fixed;
+    top: 100rpx;
+    right: 0;
+    width: 50%;
+    height: calc(100vh - 100rpx);
+    background-color: #ffffff;
+    z-index: 102;
+    box-shadow: -2rpx 0 10rpx rgba(0, 0, 0, 0.1);
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-scroll {
+    height: 100%;
+  }
+  
+  .menu-item {
+    padding: 30rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+    font-size: 32rpx;
+    color: #333;
+  }
+  
+  .menu-item:active {
+    background-color: #f5f5f5;
+  }
+  
+  /* 主内容区 */
+  .main-scroll {
+    height: calc(100vh - 100rpx);
+  }
+  
+  .content {
+    padding: 20rpx 30rpx;
+  }
+  
+  /* 章节样式 */
+  .section {
+    background-color: #ffffff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25rpx;
+  }
+  
+  .header-icon {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20rpx;
+  }
+  
+  .bg-blue {
+    background-color: #e8f4fd;
+  }
+  
+  .bg-red {
+    background-color: #fee;
+  }
+  
+  .bg-green {
+    background-color: #f0f9f0;
+  }
+  
+  .bg-yellow {
+    background-color: #fff9e6;
+  }
+  
+  .bg-gray {
+    background-color: #f5f5f5;
+  }
+  
+  .icon {
+    font-size: 32rpx;
+  }
+  
+  .section-title {
+    font-size: 34rpx;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .section-content {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .content-text {
+    font-size: 30rpx;
+    display: block;
+    margin-bottom: 25rpx;
+  }
+  
+  /* 子章节样式 */
+  .subsection {
+    margin-bottom: 30rpx;
+  }
+  
+  .subsection:last-child {
+    margin-bottom: 0;
+  }
+  
+  .subsection-title {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 20rpx;
+    display: block;
+  }
+  
+  /* 列表项样式 */
+  .content-list {
+    padding-left: 10rpx;
+  }
+  
+  .list-item {
+    display: flex;
+    margin-bottom: 25rpx;
+  }
+  
+  .list-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .item-number {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #666;
+    margin-right: 15rpx;
+    min-width: 30rpx;
+  }
+  
+  .item-content {
+    flex: 1;
+  }
+  
+  .item-title {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 8rpx;
+  }
+  
+  .item-text {
+    font-size: 28rpx;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* 提示框样式 */
+  .tip-box {
+    background-color: #fff8e6;
+    border-left: 6rpx solid #ffcc00;
+    padding: 20rpx;
+    border-radius: 8rpx;
+    margin-top: 20rpx;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .tip-icon {
+    font-size: 30rpx;
+    margin-right: 15rpx;
+    color: #ff9900;
+    margin-top: 5rpx;
+  }
+  
+  .tip-text {
+    font-size: 28rpx;
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  /* 症状卡片 */
+  .symptom-card {
+    background-color: #f9f9f9;
+    border-radius: 12rpx;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+  }
+  
+  .symptom-title {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 10rpx;
+  }
+  
+  .symptom-text {
+    font-size: 28rpx;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* 参考文献 */
+  .reference-item {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15rpx;
+    text-align: justify;
+  }
+  
+  .reference-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* 返回顶部按钮 */
+  .back-to-top {
+    position: fixed;
+    bottom: 50rpx;
+    right: 30rpx;
+    width: 80rpx;
+    height: 80rpx;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4rpx 15rpx rgba(0, 0, 0, 0.1);
+    font-size: 36rpx;
+    color: #666;
+    z-index: 99;
+  }
+  
+  /* 底部留白 */
+  .bottom-space {
+    height: 100rpx;
+  }
